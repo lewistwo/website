@@ -32,7 +32,6 @@ p {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: none;
     z-index: 100;
     padding: 10px 20px;
 }
