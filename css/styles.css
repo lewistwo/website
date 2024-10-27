@@ -2,34 +2,38 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica', sans-serif;
-    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    box-sizing: border-box; /* Include padding in width/height calculations */
 }
 
 .full-screen {
-    height: 100vh;
+    min-height: 100vh; /* Ensures full height of the viewport */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #ffffff;
     color: #333;
-    padding: 20px;
+    padding: 0px;
 }
 
 h1, h2 {
     font-size: 8rem;
+    font-weight: 500;
     margin: 0;
 }
 
 h3 {
     font-size: 1rem;
+    font-weight: 500;
     margin: 0;
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-top: 10px;
 }
 
@@ -39,58 +43,165 @@ p {
     top: 0;
     width: 100%;
     z-index: 100;
-    padding: 10px 20px;
-    font-size: 0.8rem;
+    color: #000;
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding: 6px 12px; /* Padding above and below navbar items */
+}
+
+/* Container within the Navbar */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0; /* Remove margins */
+    padding: 6px 6px; /* Padding */
+    width: 99%; /* Full width */
 }
 
 .navbar ul {
     list-style-type: none;
     display: flex;
-    justify-content: center;
+    font-size: 2rem;
+    gap: 20px;
     padding: 0;
+    margin: 0;
 }
 
 .navbar ul li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 .navbar ul li a {
     text-decoration: none;
-    color: #333;
+    color: #000;
+    transition: transform 0.3s ease; /* Smooth transition */
 }
 
+/* Apply the twist and hop animation on hover */
 .navbar ul li a:hover {
-    color: #007BFF;
+    animation: twistHop 0.25s ease; /* Trigger twist and hop animation */
 }
 
-/* Section Styling */
-#home {
-    background-color: #ffffff;
+/* Gallery Container */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 40px;
+    padding-top: 60px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-#work {
-    background-color: #ffffff;
+.content {
+    display: flex; /* or display: grid; */
+    flex-direction: column; /* Only if using flexbox */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    place-items: center; /* Use this if using grid */
+    min-height: calc(100vh - 60px); /* Adjust based on navbar height */
+    padding: 10px; /* Optional padding for spacing */
 }
 
-#play {
-    background-color: #ffffff;
+/* Initial state for fade-in effect */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly lower */
+    transition: opacity 0.85s ease-in, transform 0.85s ease-in; /* Transition properties */
 }
 
-#info {
-    background-color: #ffffff;
+/* State when the element is visible */
+.fade-in.visible {
+    opacity: 1; 
+    transform: translateY(0); /* Return to original position */
 }
 
-/* Responsive Design */
+/* Define the jump animation */
+@keyframes twistHop {
+    0% {
+        transform: translateY(0) rotate(0deg); /* Start position */
+    }
+    15% {
+        transform: translateY(-2px) rotate(2deg); /* Hop up and rotate */
+    }
+    40% {
+        transform: translateY(0) rotate(0deg); /* Return to original position */
+    }
+    55% {
+        transform: translateY(-1px) rotate(-1deg); /* Slight hop back down */
+    }
+    100% {
+        transform: translateY(0) rotate(0deg); /* Final return */
+    }
+}
+/* Individual Gallery Item */
+.gallery-item {
+    overflow: visible; /* Corrected overflow property */
+    transition: transform 0.2s ease; /* Smooth transition */
+}
+
+/* Image Styling */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Apply Twist and Hop Animation on Hover */
+.gallery-item:hover img {
+    animation: twistHop 0.2s ease; /* Adjusted duration for clarity */
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    h1, h2 {
-        font-size: 2.5rem;
+    .gallery {
+        grid-template-columns: 1fr; /* Single column layout on mobile */
+        gap: 20px;
     }
 
-    p {
-        font-size: 1rem;
+    .navbar-container {
+        flex-direction: column; /* Stack items on mobile */
+        padding: 0; /* Remove padding */
+    }
+
+    .navbar ul {
+        flex-direction: row; /* Row layout for items */
+        width: 98%; /* Full width for alignment */
+        justify-content: space-between; /* Space items evenly */
     }
 
     .navbar ul li {
-        margin: 0 10px;
+        margin: 10px; /* Equal spacing */
+    }
+
+    /* Add margin-top to content to start below the navbar */
+    .content {
+        margin-top: 60px; /* Adjust based on the height of your navbar */
     }
 }
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Adjust base size for mobile */
+    }
+
+    h1 {
+        font-size: 2rem; /* Adjust h1 size for mobile */
+    }
+
+    h2 {
+        font-size: 1.75rem; /* Adjust h2 size for mobile */
+    }
+
+    h3 {
+        font-size: 1.5rem; /* Adjust h3 size for mobile */
+    }
+
+    p {
+        font-size: 1rem; /* Adjust paragraph size for mobile */
+    }
+}
+
