@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project 1 - Lewis Rowley</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Inline CSS for the project details layout */
+        .project-details {
+            display: flex; /* Use flexbox to create a two-column layout */
+            justify-content: space-between; /* Space between the text and the image */
+            align-items: flex-start; /* Align items to the top */
+            height: 100%; /* Full height of the parent */
+            padding: 100px 20px 20px; /* Add padding at the top and sides */
+            box-sizing: border-box; /* Include padding in height calculations */
+        }
+
+        /* Styling for the text section */
+        .project-text {
+            flex: 1; /* Allow text to take available space */
+            text-align: left; /* Left align the text */
+            padding-right: 40px; /* Add space between text and image */
+        }
+
+        /* Image styling */
+        .project-image {
+            max-width: 768px; /* Set a max width for the image */
+            width: 100%; /* Make the image responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Styling for the Back to Gallery link */
+        .back-to-gallery {
+            display: inline-block; /* Makes the link behave like a block element */
+            margin-bottom: 20px; /* Space below the link */
+            color: #333; /* Text color */
+            font-size: 2rem; /* Font size */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        /* Hover effect for the Back to Gallery link */
+        .back-to-gallery:hover {
+            color: #007BFF; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar (Same as the main page) -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand"><a href="index.html">LEWIS ROWLEY</a></div>
+            <ul>
+                <li><a href="index.html#work">WORK</a></li>
+                <li><a href="index.html#play">PLAY</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content for Project Page -->
+    <div class="content">
+        <section class="project-details full-screen">
+            <div class="project-text">
+                <a href="index.html" class="back-to-gallery">GO BACK</a>
+                <h1>Project 1</h1>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy ni</p>
+            </div>
+            <img src="images/0_1905_NIKE_YOU'RE_IT_400x600.jpg" alt="Main image of Project 1" class="project-image">
+        </section>
+    </div>
+
+    <section id="info" class="full-screen"> <!-- ID maintained as 'info' -->
+        <div class="fade-in"><p>Say Hello</p></div>
+    </section>
+
+    <script src="js/modal.js"></script>
+    <script>
+        // Select elements to animate
+        const elements = document.querySelectorAll('.fade-in');
+
+        // Create an intersection observer
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing after it becomes visible
+                }
+            });
+        });
+
+        // Observe each element
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
 
