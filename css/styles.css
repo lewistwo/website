@@ -1,12 +1,16 @@
 /* Global Styles */
+
+* {
+    box-sizing: border-box; /* Ensure all elements use border-box model */
+}
+
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    box-sizing: border-box; /* Include padding in width/height calculations */
+    overflow-x: hidden;
 }
 
 .full-screen {
@@ -17,11 +21,26 @@ body, html {
     text-align: center;
     background-color: #ffffff;
     color: #333;
-    padding: 0px;
+    padding: 0;
+}
+
+.navbar-brand {
+    font-size: 2.3rem; 
+    color: #333;
+}
+
+/* Increase font size for the links */
+.navbar ul li a {
+    font-size: 2.3rem; /* Adjust this value as needed */
+}
+
+.navbar-brand a {
+    text-decoration: none; /* No underline */
+    color: #333;
 }
 
 h1, h2 {
-    font-size: 8rem;
+    font-size: 2rem;
     font-weight: 500;
     margin: 0;
 }
@@ -33,7 +52,7 @@ h3 {
 }
 
 p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-top: 10px;
 }
 
@@ -43,11 +62,12 @@ p {
     top: 0;
     width: 100%;
     z-index: 100;
-    color: #000;
+    color: #333;
     font-size: 2rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    padding: 6px 12px; /* Padding above and below navbar items */
+    padding: 10px 20px; /* Adjust padding */
+    transition: all 0.3s ease;
 }
 
 /* Container within the Navbar */
@@ -56,43 +76,37 @@ p {
     justify-content: space-between;
     align-items: center;
     margin: 0; /* Remove margins */
-    padding: 6px 6px; /* Padding */
-    width: 99%; /* Full width */
+    padding: 0; /* Padding */
+    width: 100%; /* Full width */
 }
 
 .navbar ul {
     list-style-type: none;
     display: flex;
     font-size: 2rem;
-    gap: 20px;
+    gap: 40px;
     padding: 0;
     margin: 0;
 }
 
 .navbar ul li {
-    margin: 0 10px;
+    margin: 0;
 }
 
 .navbar ul li a {
     text-decoration: none;
-    color: #000;
+    color: #333;
     transition: transform 0.3s ease; /* Smooth transition */
-}
-
-/* Apply the twist and hop animation on hover */
-.navbar ul li a:hover {
-    animation: twistHop 0.25s ease; /* Trigger twist and hop animation */
 }
 
 /* Gallery Container */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 40px;
-    padding-top: 60px;
+    gap: 30px;
+    padding-top: 0;
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .content {
@@ -102,14 +116,15 @@ p {
     align-items: center; /* Center items horizontally */
     place-items: center; /* Use this if using grid */
     min-height: calc(100vh - 60px); /* Adjust based on navbar height */
-    padding: 10px; /* Optional padding for spacing */
+    margin: 0 5%; /* Responsive side margins */
+    padding: 20px; /* Inner padding */
 }
 
 /* Initial state for fade-in effect */
 .fade-in {
     opacity: 0;
     transform: translateY(20px); /* Start slightly lower */
-    transition: opacity 0.85s ease-in, transform 0.85s ease-in; /* Transition properties */
+    transition: opacity 1s ease-in, transform 0.85s ease-in; /* Transition properties */
 }
 
 /* State when the element is visible */
@@ -136,6 +151,7 @@ p {
         transform: translateY(0) rotate(0deg); /* Final return */
     }
 }
+
 /* Individual Gallery Item */
 .gallery-item {
     overflow: visible; /* Corrected overflow property */
@@ -156,52 +172,115 @@ p {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .content {
+        display: flex; /* or display: grid; */
+        flex-direction: column; /* Only if using flexbox */
+        justify-content: center; /* Center items vertically */
+        align-items: center; /* Center items horizontally */
+        place-items: center; /* Use this if using grid */
+        min-height: calc(100vh - 60px); /* Adjust based on navbar height */
+        margin: 0 auto; /* Center and remove side margins on larger screens */
+        max-width: 1200px;
+        padding: 10px; /* Inner padding */
+    }
+
     .gallery {
         grid-template-columns: 1fr; /* Single column layout on mobile */
-        gap: 20px;
+        gap: 8px;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        justify-content: space-between; /* Space items apart */
+        height: 100vh; /* Full height of the viewport */
+        padding: 6px 12px; /* Adjust padding */
+        transition: all 0.3s ease;
     }
 
     .navbar-container {
-        flex-direction: column; /* Stack items on mobile */
-        padding: 0; /* Remove padding */
+        display: flex;
+        flex-direction: column; /* Stack brand and links vertically */
+        justify-content: flex-start; /* Align brand at the top */
+        height: 100%; /* Full height */
     }
 
     .navbar ul {
-        flex-direction: row; /* Row layout for items */
-        width: 98%; /* Full width for alignment */
-        justify-content: space-between; /* Space items evenly */
+        display: flex; /* Keep links side by side */
+        flex-direction: row; /* Ensure links are horizontal */
+        justify-content: space-between; /* Center links */
+        margin-top: auto; /* Push links to the bottom */
+        width: 100%; /* Full width for the ul */
+        padding: 0; /* Optional padding for aesthetics */
     }
 
     .navbar ul li {
-        margin: 10px; /* Equal spacing */
+        margin: 0 10px; /* Add space between links */
     }
 
-    /* Add margin-top to content to start below the navbar */
-    .content {
-        margin-top: 60px; /* Adjust based on the height of your navbar */
-    }
-}
-
-/* Media Query for Mobile Devices */
-@media (max-width: 768px) {
     body {
-        font-size: 14px; /* Adjust base size for mobile */
+        font-size: 120%; /* 20% increase */
+    }
+
+    .navbar-brand {
+        font-size: 140%; /* Increase brand size for mobile */
+        margin-bottom: auto;
+    }
+
+    .navbar ul li a {
+        font-size: 140%; /* Adjust this value as needed */
     }
 
     h1 {
-        font-size: 2rem; /* Adjust h1 size for mobile */
+        font-size: 150%; /* Adjust h1 size for mobile */
     }
 
     h2 {
-        font-size: 1.75rem; /* Adjust h2 size for mobile */
+        font-size: 150%; /* Adjust h2 size for mobile */
     }
 
     h3 {
-        font-size: 1.5rem; /* Adjust h3 size for mobile */
+        font-size: 150%; /* Adjust h3 size for mobile */
     }
 
     p {
-        font-size: 1rem; /* Adjust paragraph size for mobile */
+        font-size: 150%; /* Adjust paragraph size for mobile */
     }
 }
 
+/* Mobile Styles */
+@media (max-width: 600px) {
+
+    .navbar-brand {
+        font-size: 140%; /* Increase brand size for mobile */
+    }
+
+    body {
+        font-size: 120%; /* 20% increase */
+    }
+
+    .navbar ul li a {
+        font-size: 140%; /* Adjust this value as needed */
+    }
+
+    h1 {
+        font-size: 150%; /* Adjust h1 size for mobile */
+    }
+
+    h2 {
+        font-size: 150%; /* Adjust h2 size for mobile */
+    }
+
+    h3 {
+        font-size: 150%; /* Adjust h3 size for mobile */
+    }
+
+    p {
+        font-size: 150%; /* Adjust paragraph size for mobile */
+    }
+
+    .gallery-item img {
+        width: 100%; /* Responsive images */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
