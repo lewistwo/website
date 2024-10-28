@@ -7,10 +7,24 @@
 body, html {
     margin: 0;
     padding: 0;
+    font-size: 1rem;
+    line-height: 1.2;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     scroll-behavior: smooth;
     overflow-x: hidden;
+}
+
+.body-text {
+    font-size: 0.875rem; /* Default body size, relative to base size */
+    line-height: 1.5; /* Line height for readability */
+    color: #333;
+}
+
+.small-body {
+    font-size: 0.8rem; /* 14px, smaller than base */
+    line-height: 1.5;
+    color: #555;
 }
 
 .full-screen {
@@ -25,13 +39,13 @@ body, html {
 }
 
 .navbar-brand {
-    font-size: 2.3rem; 
+    font-size: 1.875rem; 
     color: #333;
 }
 
 /* Increase font size for the links */
 .navbar ul li a {
-    font-size: 2.3rem; /* Adjust this value as needed */
+    font-size: 1.875rem; /* Adjust this value as needed */
 }
 
 .navbar-brand a {
@@ -40,20 +54,30 @@ body, html {
 }
 
 h1, h2 {
-    font-size: 2rem;
-    font-weight: 500;
-    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 2px;
 }
 
 h3 {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
 }
 
 p {
-    font-size: 1.5rem;
-    margin-top: 10px;
+    font-size: 1rem;
+    margin-top: 2px;
+}
+
+/* Subheader Style */
+.subheader {
+    font-size: 0.8rem;  /* Slightly smaller than main header but larger than body text */
+    font-weight: 500;    /* Semi-bold weight to distinguish it */
+    color: #444;         /* Slightly lighter than main header color */
+    line-height: 1.4;    /* Adjusted for readability */
+    margin-top: 0.5em;   /* Add spacing above */
+    margin-bottom: 0.5em; /* Add spacing below */
 }
 
 /* Navbar Styling */
@@ -228,55 +252,56 @@ p {
     }
 
     .navbar ul li a {
-        font-size: 140%; /* Adjust this value as needed */
+        font-size: 130%; /* Adjust this value as needed */
     }
 
     h1 {
-        font-size: 150%; /* Adjust h1 size for mobile */
+        font-size: 130%; /* Adjust h1 size for mobile */
     }
 
     h2 {
-        font-size: 150%; /* Adjust h2 size for mobile */
+        font-size: 130%; /* Adjust h2 size for mobile */
     }
 
     h3 {
-        font-size: 150%; /* Adjust h3 size for mobile */
+        font-size: 130%; /* Adjust h3 size for mobile */
     }
 
     p {
-        font-size: 150%; /* Adjust paragraph size for mobile */
+        font-size: 130%; /* Adjust paragraph size for mobile */
     }
+
 }
 
 /* Mobile Styles */
 @media (max-width: 600px) {
 
     .navbar-brand {
-        font-size: 140%; /* Increase brand size for mobile */
+        font-size: 130%; /* Increase brand size for mobile */
     }
 
     body {
-        font-size: 120%; /* 20% increase */
+        font-size: 130%; /* 20% increase */
     }
 
     .navbar ul li a {
-        font-size: 140%; /* Adjust this value as needed */
+        font-size: 130%; /* Adjust this value as needed */
     }
 
     h1 {
-        font-size: 150%; /* Adjust h1 size for mobile */
+        font-size: 130%; /* Adjust h1 size for mobile */
     }
 
     h2 {
-        font-size: 150%; /* Adjust h2 size for mobile */
+        font-size: 130%; /* Adjust h2 size for mobile */
     }
 
     h3 {
-        font-size: 150%; /* Adjust h3 size for mobile */
+        font-size: 130%; /* Adjust h3 size for mobile */
     }
 
     p {
-        font-size: 150%; /* Adjust paragraph size for mobile */
+        font-size: 130%; /* Adjust paragraph size for mobile */
     }
 
     .gallery-item img {
