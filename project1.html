@@ -8,47 +8,70 @@
     <style>
         /* Inline CSS for the project details layout */
         .project-details {
-            display: flex; /* Use flexbox to create a two-column layout */
-            justify-content: space-between; /* Space between the text and the image */
-            align-items: flex-start; /* Align items to the top */
-            height: 100%; /* Full height of the parent */
-            padding: 100px 20px 20px; /* Add padding at the top and sides */
-            box-sizing: border-box; /* Include padding in height calculations */
+            display: flex; 
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center content horizontally */
+            padding: 120px 10px 10px;
+            box-sizing: border-box;
         }
 
         /* Styling for the text section */
         .project-text {
-            flex: 1; /* Allow text to take available space */
-            text-align: left; /* Left align the text */
-            padding-right: 40px; /* Add space between text and image */
+            text-align: left;
+            padding-bottom: 10px;
+            width: 100%; /* Full width for text alignment */
+            max-width: 768px; /* Optional, to match image width */
         }
 
         /* Image styling */
         .project-image {
-            max-width: 768px; /* Set a max width for the image */
-            width: 100%; /* Make the image responsive */
+            max-width: 768px;
+            width: 100%; /* Responsive width */
+            height: auto;
+            margin-bottom: 20px; /* Space between image and text */
+        }
+
+        .project-description {
+            width: 100%;
+            max-width: 768px; /* Aligns with image width */
+        }
+
+        /* Gallery styles */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns for the first row */
+            gap: 15px; /* Space between images */
+            margin: 20px 0; /* Space above and below gallery */
+            width: 100%; /* Full width */
+            max-width: 768px; /* Align with text and image */
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: auto;
+            overflow: hidden; /* Crop overflow */
+            border: 1px solid #ddd; /* Optional border for items */
+        }
+
+        .gallery-item img {
+            width: 100%; /* Full width */
             height: auto; /* Maintain aspect ratio */
         }
 
-        /* Styling for the Back to Gallery link */
-        .back-to-gallery {
-            display: inline-block; /* Makes the link behave like a block element */
-            margin-bottom: 20px; /* Space below the link */
-            color: #333; /* Text color */
-            font-size: 2rem; /* Font size */
-            text-decoration: none; /* Remove underline */
-            transition: color 0.3s; /* Smooth color transition */
+        /* Landscape image styles */
+        .landscape {
+            grid-column: span 3; /* Span all columns for landscape */
         }
 
-        /* Hover effect for the Back to Gallery link */
-        .back-to-gallery:hover {
-            color: #007BFF; /* Change color on hover */
+        /* Styling for smaller images */
+        .small-image {
+            grid-column: span 1; /* Single column for smaller images */
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar (Same as the main page) -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-brand"><a href="index.html">LEWIS ROWLEY</a></div>
@@ -61,40 +84,75 @@
 
     <!-- Content for Project Page -->
     <div class="content">
-        <section class="project-details full-screen">
+        <section class="project-details">
             <div class="project-text">
-                <a href="index.html" class="back-to-gallery">GO BACK</a>
-                <h1>Project 1</h1>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy ni</p>
+                <p class="subheader">Spring 19 What to Wear This Week</p>
+                <h1>Nike Kids — You're It</h1>
             </div>
-            <img src="images/0_1905_NIKE_YOU'RE_IT_400x600.jpg" alt="Main image of Project 1" class="project-image">
+            <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Main image of Project 1" class="project-image">
+            
+            <!-- Description section below the image -->
+            <div class="project-description">
+                <p class="body-text">A seasonal series bringing key styling stories tailored to specific consumer mindsets. Each look was styled carefully based on both seasonal trends, seasonal concepts, and global buys. The photography took a pared-back approach to ensure the clothing remained the focus. Season after season, the series developed to adapt to the concept, strategy, and accommodate evolving styles and climates. It became one of the most successful trend-based communications sent out each week, and has continued to grow and evolve.</p>
         </section>
-    </div>
 
-    <section id="info" class="full-screen"> <!-- ID maintained as 'info' -->
+        <!-- Image Gallery Section -->
+        <section class="image-gallery">
+            <!-- Row of 3 images -->
+            <div class="gallery-item small-image">
+                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 1">
+            </div>
+            <div class="gallery-item small-image">
+                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 2">
+            </div>
+            <div class="gallery-item small-image">
+                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 3">
+            </div>
+
+            <!-- Row of 1 landscape image -->
+            <div class="gallery-item landscape">
+                <img src="images/1_2101_KITOKI_INN_1390x800.jpg" alt="Landscape Image">
+            </div>
+
+            <!-- Additional smaller images -->
+            <div class="gallery-item small-image">
+                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 4">
+            </div>
+            <div class="gallery-item small-image">
+                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 5">
+            </div>
+        </section>
+
+        <section>
+            <div class="content">
+                <section class="project-details">
+                    <div class="project-text">
+                        <p class="small-body">Photographer: Steven Counts<br>Art Direction: Colin Matsui<br>
+                            Stylist: Michaela Krebs<br>
+                            Hair: Ben Jones<br>
+                            Makeup: Yuka Washizu<br>
+                            Production: ShootEurope</p>
+            </div>
+    </section>
+
+    <section id="info" class="full-screen">
         <div class="fade-in"><p>Say Hello</p></div>
     </section>
 
     <script src="js/modal.js"></script>
     <script>
-        // Select elements to animate
         const elements = document.querySelectorAll('.fade-in');
-
-        // Create an intersection observer
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Stop observing after it becomes visible
+                    observer.unobserve(entry.target);
                 }
             });
         });
-
-        // Observe each element
         elements.forEach(element => {
             observer.observe(element);
         });
     </script>
 </body>
 </html>
-
