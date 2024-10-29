@@ -1,74 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project 1 - Lewis Rowley</title>
+    <title>AER SKINLAB</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Inline CSS for the project details layout */
-        .project-details {
-            display: flex; 
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center content horizontally */
-            padding: 120px 10px 10px;
-            box-sizing: border-box;
-        }
 
-        /* Styling for the text section */
-        .project-text {
-            text-align: left;
-            padding-bottom: 10px;
-            width: 100%; /* Full width for text alignment */
-            max-width: 768px; /* Optional, to match image width */
-        }
+/* Project Details Section */
+.project-details {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align content to the left */
+    padding: 200px 50px 50px; /* Default padding for larger screens */
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 768px;
+}
 
-        /* Image styling */
-        .project-image {
-            max-width: 768px;
-            width: 100%; /* Responsive width */
-            height: auto;
-            margin-bottom: 20px; /* Space between image and text */
-        }
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) {
+    .project-details {
+        padding: 100px 20px 20px; /* Adjusted padding for mobile */
+    }
+}
 
-        .project-description {
-            width: 100%;
-            max-width: 768px; /* Aligns with image width */
-        }
-
-        /* Gallery styles */
+        /* Image Gallery Styling */
         .image-gallery {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns for the first row */
-            gap: 15px; /* Space between images */
-            margin: 20px 0; /* Space above and below gallery */
-            width: 100%; /* Full width */
-            max-width: 768px; /* Align with text and image */
+            grid-template-columns: repeat(12, 1fr); /* 12-column grid for flexibility */
+            gap: 20px;
+            margin: 0;
+            width: 100%;
+            max-width: 1400px;
         }
 
+        /* Gallery Item Styling */
         .gallery-item {
-            width: 100%;
-            height: auto;
-            overflow: hidden; /* Crop overflow */
-            border: 1px solid #ddd; /* Optional border for items */
+            overflow: hidden;
         }
 
         .gallery-item img {
-            width: 100%; /* Full width */
-            height: auto; /* Maintain aspect ratio */
+            width: 100%;
+            height: auto;
+            display: block;
+            -webkit-user-drag: none; /* For Safari */
+            -khtml-user-drag: none; /* For older versions of Konqueror */
+            user-drag: none; /* Non-prefixed version */
         }
 
-        /* Landscape image styles */
-        .landscape {
-            grid-column: span 3; /* Span all columns for landscape */
-        }
-
-        /* Styling for smaller images */
-        .small-image {
-            grid-column: span 1; /* Single column for smaller images */
-        }
+        /* Column Span Classes */
+        .small { grid-column: span 3; grid-row: span 1; }
+        .medium { grid-column: span 6; grid-row: span 1; }
+        .large { grid-column: span 6; grid-row: span 2; }
+        .full-width { grid-column: span 12; grid-row: span 2; }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation Bar -->
@@ -76,71 +65,53 @@
         <div class="navbar-container">
             <div class="navbar-brand"><a href="index.html">LEWIS ROWLEY</a></div>
             <ul>
-                <li><a href="index.html#work">WORK</a></li>
-                <li><a href="index.html#play">PLAY</a></li>
+                <li><a href="index.html">WORK</a></li>
+                <li><a href="info.html">INFO</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Project Description Section -->
+    <section class="project-details">
+        <div class="project-text">
+            <h1>AER SKINLAB</h1>
+            <p class="body-text">Aer Skinlab, located in Vancouver, is a cutting-edge dermatology clinic committed to proactive skin care. Alongside a range of treatments, their highly skilled aestheticians carry out procedures in a modern architectural space, and offer its exclusive line of skincare products that focus on preventative solutions.</p>
+        </div>
+    </section>
+
     <!-- Content for Project Page -->
     <div class="content">
-        <section class="project-details">
-            <div class="project-text">
-                <p class="subheader">Spring 19 What to Wear This Week</p>
-                <h1>Nike Kids — You're It</h1>
-            </div>
-            <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Main image of Project 1" class="project-image">
-            
-            <!-- Description section below the image -->
-            <div class="project-description">
-                <p class="body-text">A seasonal series bringing key styling stories tailored to specific consumer mindsets. Each look was styled carefully based on both seasonal trends, seasonal concepts, and global buys. The photography took a pared-back approach to ensure the clothing remained the focus. Season after season, the series developed to adapt to the concept, strategy, and accommodate evolving styles and climates. It became one of the most successful trend-based communications sent out each week, and has continued to grow and evolve.</p>
-        </section>
+        <div class="content-wrapper">
+            <section class="image-gallery">
+                <!-- Gallery Images -->
+                <div class="gallery-item small"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Small Image 1"></div>
+                <div class="gallery-item medium"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Medium Image 1"></div>
+                <div class="gallery-item large"><img src="images/1_2101_KITOKI_INN_1390x800.jpg" alt="Large Image"></div>
+                <div class="gallery-item full-width"><img src="images/1_2101_KITOKI_INN_1390x800.jpg" alt="Full Width"></div>
+                <div class="gallery-item small"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Small Image 2"></div>
+                <div class="gallery-item small"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Small Image 3"></div>
+            </section>
+        </div>
+    </div>
 
-        <!-- Image Gallery Section -->
-        <section class="image-gallery">
-            <!-- Row of 3 images -->
-            <div class="gallery-item small-image">
-                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 1">
-            </div>
-            <div class="gallery-item small-image">
-                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 2">
-            </div>
-            <div class="gallery-item small-image">
-                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 3">
-            </div>
+    <!-- Credits Section -->
+    <footer class="project-details">
+        <div class="project-text">
+            <p class="subheader">CREDITS</p>
+            <p class="small-body">Photographer: Steven Counts<br>Art Direction: Colin Matsui<br>Stylist: Michaela Krebs<br>Hair: Ben Jones<br>Makeup: Yuka Washizu<br>Production: ShootEurope</p>
+        </div>
+    </footer>
 
-            <!-- Row of 1 landscape image -->
-            <div class="gallery-item landscape">
-                <img src="images/1_2101_KITOKI_INN_1390x800.jpg" alt="Landscape Image">
-            </div>
-
-            <!-- Additional smaller images -->
-            <div class="gallery-item small-image">
-                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 4">
-            </div>
-            <div class="gallery-item small-image">
-                <img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Image 5">
-            </div>
-        </section>
-
-        <section>
-            <div class="content">
-                <section class="project-details">
-                    <div class="project-text">
-                        <p class="small-body">Photographer: Steven Counts<br>Art Direction: Colin Matsui<br>
-                            Stylist: Michaela Krebs<br>
-                            Hair: Ben Jones<br>
-                            Makeup: Yuka Washizu<br>
-                            Production: ShootEurope</p>
-            </div>
+    <!-- Centered Column for Say Hello Section -->
+    <section id="info" class="centered-column">
+        <div class="text-container fade-in">
+            <p class="body-text">Say hello<br>lewisrwork@gmail.com</p>
+        </div>
     </section>
 
-    <section id="info" class="full-screen">
-        <div class="fade-in"><p>Say Hello</p></div>
-    </section>
-
-    <script src="js/modal.js"></script>
+    <!-- Fade-in Animation Script -->
     <script>
+        // Intersection Observer for fade-in elements
         const elements = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -150,9 +121,8 @@
                 }
             });
         });
-        elements.forEach(element => {
-            observer.observe(element);
-        });
+
+        elements.forEach(element => observer.observe(element));
     </script>
 </body>
 </html>
