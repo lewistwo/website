@@ -3,59 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AER SKINLAB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT 1</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 
-/* Project Details Section */
-.project-details {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align content to the left */
-    padding: 200px 50px 50px; /* Default padding for larger screens */
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 768px;
-}
-
-/* Media Query for Mobile Devices */
-@media (max-width: 600px) {
-    .project-details {
-        padding: 100px 20px 20px; /* Adjusted padding for mobile */
-    }
-}
-
-        /* Image Gallery Styling */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr); /* 12-column grid for flexibility */
-            gap: 20px;
-            margin: 0;
-            width: 100%;
-            max-width: 1400px;
-        }
-
-        /* Gallery Item Styling */
-        .gallery-item {
-            overflow: hidden;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            -webkit-user-drag: none; /* For Safari */
-            -khtml-user-drag: none; /* For older versions of Konqueror */
-            user-drag: none; /* Non-prefixed version */
-        }
-
-        /* Column Span Classes */
-        .small { grid-column: span 3; grid-row: span 1; }
-        .medium { grid-column: span 6; grid-row: span 1; }
-        .large { grid-column: span 6; grid-row: span 2; }
-        .full-width { grid-column: span 12; grid-row: span 2; }
-    </style>
 </head>
 
 <body>
@@ -65,64 +19,72 @@
         <div class="navbar-container">
             <div class="navbar-brand"><a href="index.html">LEWIS ROWLEY</a></div>
             <ul>
-                <li><a href="index.html">WORK</a></li>
-                <li><a href="info.html">INFO</a></li>
+                <li><a href="index.html">INDEX</a></li>
+                <li><a href="about.html">ABOUT</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Project Description Section -->
-    <section class="project-details">
-        <div class="project-text">
-            <h1>AER SKINLAB</h1>
-            <p class="body-text">Aer Skinlab, located in Vancouver, is a cutting-edge dermatology clinic committed to proactive skin care. Alongside a range of treatments, their highly skilled aestheticians carry out procedures in a modern architectural space, and offer its exclusive line of skincare products that focus on preventative solutions.</p>
-        </div>
-    </section>
+    <!-- Main Content Area -->
+    <main class="main-content">
 
-    <!-- Content for Project Page -->
-    <div class="content">
-        <div class="content-wrapper">
-            <section class="image-gallery">
-                <!-- Gallery Images -->
-                <div class="gallery-item small"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Small Image 1"></div>
-                <div class="gallery-item medium"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Medium Image 1"></div>
-                <div class="gallery-item large"><img src="images/1_2101_KITOKI_INN_1390x800.jpg" alt="Large Image"></div>
-                <div class="gallery-item full-width"><img src="images/1_2101_KITOKI_INN_1390x800.jpg" alt="Full Width"></div>
-                <div class="gallery-item small"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Small Image 2"></div>
-                <div class="gallery-item small"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Small Image 3"></div>
+        <!-- Project Details Section -->
+        <div class="project-details">
+            <section>
+                <div class="project-text">
+                    <h1>Nike Kids</h1>
+                    <h2>You're It</h2>
+                    <p class="large-body">For the Nike Kids' ‘You’re It’ campaign, conceptualised by Weiden + Kennedy Amsterdam, a fresh spin on the classic game of 'tag' is deployed to boost girls in sports self-confidence. Through an inspiring film, custom "Don't Skip" videos, and a YouTube game, the campaign encourages a sense of empowerment. Followers are invited to join the #youreit digital tag game on social channels in aid of contributing to a supportive sisterhood fueled by movement. The campaign was centred around go the a format-first approach. Mobile only.</p>
+                </div>
             </section>
         </div>
-    </div>
+        
+        <div class="right-column"></div>
 
-    <!-- Credits Section -->
-    <footer class="project-details">
-        <div class="project-text">
-            <p class="subheader">CREDITS</p>
-            <p class="small-body">Photographer: Steven Counts<br>Art Direction: Colin Matsui<br>Stylist: Michaela Krebs<br>Hair: Ben Jones<br>Makeup: Yuka Washizu<br>Production: ShootEurope</p>
+        <!-- Image Gallery Section -->
+        <div class="content">
+            <div class="content-wrapper">
+                <section class="image-gallery">
+                    <div class="blank-space blank-space-half-width"></div>
+                    <div class="gallery-item large"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Large Image"></div>
+                    <div class="blank-space blank-space-full-width"></div>
+                    <div class="gallery-item medium"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Medium Image"></div>
+                    <div class="blank-space blank-space-half-width"></div>
+                    <div class="blank-space blank-space-half-width"></div>
+                    <div class="gallery-item full-width"><img src="images/1_2101_KITOKI_INN_1390x800.jpg" alt="Full Width"></div>
+                    <div class="gallery-item medium"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Medium Image"></div>
+                    <div class="gallery-item medium"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Medium Image"></div>
+                    <div class="blank-space blank-space-full-width"></div>
+                    <div class="gallery-item small"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Small Image"></div>
+                    <div class="gallery-item small"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Small Image"></div>
+                    <div class="gallery-item medium"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Medium Image"></div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Credits Section -->
+        <div class="project-details">
+            <div>
+                <p class="subheader">Credits</p>
+                <p class="small-body">Photographer: Steven Counts<br>Art Direction: Colin Matsui<br>Stylist: Michaela Krebs<br>Hair: Ben Jones<br>Makeup: Yuka Washizu<br>Production: ShootEurope</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-left">
+            <p class="footer-body">Brand Identity, Art Direction and Design for sport, lifestyle, and hospitality industries. Based in London.</p>
+        </div>
+        <div class="footer-right">
+            <p class="footer-body">© All Rights Reserved 2024</p>
         </div>
     </footer>
 
-    <!-- Centered Column for Say Hello Section -->
-    <section id="info" class="centered-column">
-        <div class="text-container fade-in">
-            <p class="body-text">Say hello<br>lewisrwork@gmail.com</p>
-        </div>
-    </section>
-
-    <!-- Fade-in Animation Script -->
-    <script>
-        // Intersection Observer for fade-in elements
-        const elements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-
-        elements.forEach(element => observer.observe(element));
-    </script>
 </body>
+
+<!-- Link to external JavaScript file -->
+<script src="scripts/scripts.js"></script>
+
 </html>
