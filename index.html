@@ -1,21 +1,19 @@
 <!DOCTYPE html>
+
+<!--
+    —————————————————————————————————————————————————
+    Lewis Rowley                         © 2024
+    Website Design
+    —————————————————————————————————————————————————
+-->
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LEWIS R.</title>
+    <title>Lewis Rowley</title>
     <link rel="stylesheet" href="css/styles.css">
-
-        <style>
-            img {
-                -webkit-user-drag: none; /* For Safari */
-                -khtml-user-drag: none; /* For older versions of Konqueror */
-                user-drag: none; /* Non-prefixed version */
-            }
-
-        </style>
-    
 </head>
 
 <body class="home-page">
@@ -27,16 +25,26 @@
                 <a href="index.html">LEWIS ROWLEY</a>
             </div>
             <ul>
-                <li><a href="index.html">WORK</a></li>
-                <li><a href="info.html">INFO</a></li>
+                <li><a href="index.html">INDEX</a></li>
+                <li><a href="about.html">ABOUT</a></li>
             </ul>
         </div>
     </nav>
 
- <!-- Work Section with Gallery -->
-        <section id="work" class="full-screen" style="margin: 20px;">
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Gallery Section -->
+        <section class="content-wrapper">
             <div class="gallery gallery-twist">
-                <!-- Gallery Items -->
+                <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
+                <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
+                <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
+                <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
+                <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
+                <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
+                <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
+                <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
+                <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
                 <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
                 <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
                 <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
@@ -57,31 +65,21 @@
                 <div class="gallery-item"><a href="project1.html"><img src="images/0_2101_KITOKI_INN_460x600.jpg" alt="Project 1"></a></div>
             </div>
         </section>
+    </main>
 
-    </div>
-
-    <!-- Centered Column for Say Hello Section -->
-    <section id="info" class="centered-column">
-        <div class="text-container fade-in">
-            <p class="body-text">Say hello<br>lewisrwork@gmail.com</p>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-left">
+            <p class="footer-body">Brand Identity, Art Direction and Design for sport, lifestyle, and hospitality industries. Based in London.</p>
         </div>
-    </section>
-
-    <!-- Fade-in Animation Script -->
-    <script>
-        // Intersection Observer for fade-in elements
-        const elements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-
-        elements.forEach(element => observer.observe(element));
-    </script>
+        <div class="footer-right">
+            <p class="footer-body">© All Rights Reserved 2024</p>
+        </div>
+    </footer>
 
 </body>
+
+<!-- Link to external JavaScript file -->
+<script src="scripts/scripts.js"></script>
+
 </html>
