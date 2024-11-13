@@ -30,7 +30,7 @@ body {
 /* Typography */
 .large-body {
     margin-top: 0;
-    font-size: 1.572rem;
+    font-size: 1.272rem;
     font-weight: 500;
     line-height: 1.3;
     color: #111;
@@ -50,12 +50,13 @@ h1, h2, h3, .subheader, p {
 
 h1 {
     font-size: 1.786rem;
+    text-transform: uppercase;
     font-weight: 500;
     line-height: 0.6;
 }
 
 h2 {
-    font-size: 1.272rem;
+    font-size: 1.072rem;
     font-weight: 500;
     line-height: 0.6;
 }
@@ -67,7 +68,7 @@ h3 {
 }
 
 .subheader {
-    font-size: 1.272rem;
+    font-size: 1.072rem;
     font-weight: 500;
     line-height: 1.3;
 }
@@ -178,9 +179,8 @@ p {
 .project-details {
     display: flex;
     flex-direction: column;
-    padding-right: 10px;
     width: 100%;
-    max-width: 1366px;
+    max-width: 1080px;
     margin: 0 auto;
     box-sizing: border-box;
 }
@@ -198,7 +198,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    max-width: 1366px; /* You can keep this max-width for a consistent layout */
+    max-width: 1080px; /* You can keep this max-width for a consistent layout */
     width: 100%; /* Ensures the wrapper takes up the full width */
     justify-content: space-evenly; /* Distributes space evenly between items */
     margin: 0 auto; /* Centering the wrapper within the content */
@@ -208,7 +208,7 @@ p {
 .two-column-layout {
     display: flex;
     justify-content: center;
-    max-width: 1366px;
+    max-width: 1080px;
     margin: 0 auto;
     width: 100%;
     align-items: stretch;
@@ -219,7 +219,7 @@ p {
     flex-direction: column;
     align-items: stretch;
     flex: 1;
-    padding-right: 30px;
+    padding-right: 10px;
     box-sizing: border-box;
 }
 
@@ -241,9 +241,9 @@ p {
 /* Gallery Section */
 .gallery {
     display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(6, 1fr);
-    max-width: 1366px;
+    gap: 30px;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1080px;
     margin: 0 auto;
 }
 
@@ -288,7 +288,7 @@ p {
     position: relative;
     gap: 40px;
     grid-template-columns: repeat(6, 1fr);
-    max-width: 1366px;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
@@ -402,14 +402,52 @@ p {
     .navbar ul, .navbar-brand {
         list-style-type: none;
         display: flex;
-        gap: 30px; /* Adjust spacing for smaller screens */
+        gap: 60px; /* Adjust spacing for smaller screens */
         padding: 0;
         margin: 0;
         margin-top: 0;
-        font-size: 1.5rem;
+        font-size: 1.272rem;
         line-height: 1.3;
         justify-content: center; /* Ensure the navbar items are centered */
     }
+
+/* Two-Column Layout Stacking for Mobile */
+.two-column-layout {
+    display: flex;
+    flex-direction: column; /* Stack columns vertically */
+    width: 100%; /* Ensure full width */
+    margin: 0 auto; /* Center layout */
+}
+
+/* Always show the subtitle without hover */
+.gallery-item .gallery-item-subtitle {
+    opacity: 1; /* Make subtitle always visible */
+}
+
+/* Remove hover styles for gallery items */
+.gallery-item:hover .gallery-item-subtitle {
+    opacity: 1; /* Ensures the subtitle remains visible without hover */
+}
+
+/* Disable image hover transitions */
+.gallery-item img {
+    transition: none; /* Removes transform/transition effects on images */
+}
+
+/* Disable rotate-on-hover animations without affecting clicks */
+.rotate-on-hover,
+.rotate-on-hover-impact {
+    animation: none; /* Disables any hover-triggered animation */
+    transition: none; /* Removes any transform transitions on hover */
+}
+
+.left-column,
+.right-column {
+    width: 100%; /* Full width for each column */
+    padding-right: 0; /* Remove right padding to avoid extra space */
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Optional: Adds spacing between stacked columns */
+}
 
     /* Footer Styles */
     .footer {
