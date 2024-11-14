@@ -15,16 +15,18 @@
     <title>Lewis Rowley</title>
     <title>Protected Page</title>
    <script>
-      function checkPassword() {
-         var enteredPassword = document.getElementById("password").value;
-         var correctPassword = "yourpassword"; // Change to your desired password
-         if (enteredPassword === correctPassword) {
-            window.location.href = "homepage.html"; // Change to your actual page
-         } else {
-            alert("Incorrect password. Try again.");
-         }
-      }
-   </script>
+        function checkPassword() {
+            const password = prompt("Enter password to access this page:");
+            if (password === "YourPassword") {
+                alert("Access granted");
+                return true;
+            } else {
+                alert("Incorrect password. Redirecting...");
+                window.location.href = "error.html"; // Redirect or restrict access
+                return false;
+            }
+        }
+    </script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
