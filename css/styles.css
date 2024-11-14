@@ -77,7 +77,7 @@ h2 {
     letter-spacing: 0.0139rem;
     text-transform: uppercase;
     line-height: 0.6;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 h3 {
@@ -354,11 +354,11 @@ p {
 /* Reusable Hover Animation */
 .rotate-on-hover {
     display: inline-block;
-    transition: transform 0s ease;
+    transition: transform 0.1s ease;
 }
 
 .rotate-on-hover:hover {
-    animation: rotateOnHover 0.1s forwards;
+    animation: rotateOnHover 0.25s forwards;
 }
 
 /* Keyframe Animation */
@@ -412,22 +412,54 @@ p {
         width: 100%;
     }
 
-    .navbar {
-        padding: 15px;
-        min-height: 50px;
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 60px);
+        width: 100%;
     }
 
+    .content-wrapper {
+        padding: 0;
+        gap: 20px;
+        width: 100%;
+    }
+
+
+    /* Navbar styling for mobile */
+    .navbar {
+        padding: 15px;
+        min-height: 70px;
+        display: flex;
+        flex-direction: column; /* Stack brand and links vertically */
+        justify-content: flex-start;
+        align-items: center; /* Center navbar content */
+        gap: 10px; /* Space between brand and links */
+    }
+
+    /* Navbar brand styling */
+    .navbar-brand {
+        font-size: 1.572rem;
+    }
+
+    /* Navbar links */
     .navbar ul {
         list-style-type: none;
         display: flex;
-        gap: 60px;
+        justify-content: center; /* Center the links horizontally */
+        gap: 30px; /* Space between Index and About */
         padding: 0;
         margin: 0;
     }
 
+    /* Navbar link styling */
     .navbar ul li a, .navbar-brand a {
         font-size: 1.572rem;
         letter-spacing: 0.0139rem;
+        color: #111;
+        text-decoration: none;
         transition: transform 0.3s ease;
     }
 
