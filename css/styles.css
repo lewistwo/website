@@ -108,6 +108,7 @@ h1 {
 }
 
 .holding-page h1 {
+    align-content: centre;
     font-size: 1.486rem;
     font-weight: 400;
     letter-spacing: 0.0139rem;
