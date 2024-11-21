@@ -27,6 +27,17 @@ time, mark, audio, video {
     box-sizing: border-box;
 }
 
+.holding-page h1 {
+    font-size: 1.486rem;
+    font-weight: 400;
+    letter-spacing: 0.0139rem;
+    text-transform: uppercase;
+    line-height: 0.6;
+    padding-bottom: 30px;
+    text-align: center; /* Ensure text is centred */
+    margin: 0; /* Remove default margin */
+}
+
 body {
     margin: 0;
     padding-top: 180px;
