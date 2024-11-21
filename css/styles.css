@@ -116,7 +116,7 @@ h1 {
     line-height: 0.6;
     padding-bottom: 30px;
     text-align: center; /* Ensure text is centred */
-    margin: 0; /* Remove default margin */
+    margin: auto; /* Remove default margin */
 }
 
 h2 {
