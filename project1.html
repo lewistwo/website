@@ -13,53 +13,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lewis Rowley</title>
-    <title>Protected Page</title>
-   <script>
-        function checkPassword() {
-            const password = prompt("Enter password to access this page:");
-            if (password === "YourPassword") {
-                alert("Access granted");
-                return true;
-            } else {
-                alert("Incorrect password. Redirecting...");
-                window.location.href = "error.html"; // Redirect or restrict access
-                return false;
-            }
-        }
-    </script>
+    <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="project-page">
 
-    <!-- Navigation Bar -->
-    <nav class="navbar" aria-label="Main Navigation">
-        <div class="navbar-container">
-            <div class="navbar-brand">
-                <a href="index.html" class="rotate-on-hover-impact">LEWIS ROWLEY</a>
-            </div>
-            <ul>
-                <li><a href="index.html" class="rotate-on-hover-impact">INDEX</a></li>
-                <li><a href="about.html" class="rotate-on-hover-impact">ABOUT</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- Navigation Bar -->
+<nav class="navbar" aria-label="Main Navigation">
+    <ul>
+            <li><a href="index.html" class="navbar-body">LEWIS ROWLEY</a></li>
+            <li><a href="index.html" class="navbar-body">WORK</a></li>
+            <li><a href="about.html" class="navbar-body">ABOUT</a></li>
+            <li><a href="#sketchbook" class="navbar-body">SKETCHBOOK</a></li>
+    </ul>
+</nav>
 
     <!-- Main Content Area -->
     <main class="main-content">
 
-        <!-- Project Details Section -->
-        <div class="project-details">
-            <section>
-                <div class="project-text">
-                    <h1>Kitoki Inn</h1>
-                    <p class="subheader">An ancient Japanese tradition in harmony with nature</p>
-                    <p class="large-body">Kitoki Inn offers a Japanese-inspired experience in the stunning surroundings of Bowen Island, British Columbia. The term 'kitoki' reflects themes of folklore, translating to 'tree and spirit,' fostering a renewed connection between oneself and the natural world. This retreat follows the traditional Japanese guest house style, nestled amidst woodlands and forest walks. Embracing the concept of 'bathing in nature,' Kitoki Inn provides bathhouse and spa facilities to rejuvenate and restore the mind and body.</p>
-                </div>
-            </section>
+        <div class="two-column-layout">
+            <div class="left-column"><!-- Empty --></div>
+            
+            <div class="right-column">
+                <section>
+                    <div class="project-text">
+                        <h1>Kitoki Inn</h1>
+                        <p class="large-body">Kitoki Inn offers a Japanese-inspired experience in the stunning surroundings of Bowen Island, British Columbia. The term 'kitoki' reflects themes of folklore, translating to 'tree and spirit,' fostering a renewed connection between oneself and the natural world. This retreat follows the traditional Japanese guest house style, nestled amidst woodlands and forest walks. Embracing the concept of 'bathing in nature,' Kitoki Inn provides bathhouse and spa facilities to rejuvenate and restore the mind and body.</p>
+                    </div>
+                </section>
+            </div>
+    
         </div>
-        
-        <div class="right-column"></div>
+    
 
         <!-- Image Gallery Section -->
 <div class="content">
@@ -67,32 +53,52 @@
         <section class="image-gallery">
             <!-- Full-width image -->
             <div class="gallery-item full-width">
-                <img src="images/1-2101-kitoki-inn-1366x786.jpg" alt="Exterior view of Kitoki Inn surrounded by trees">
+                <img src="images/2101-kitoki-inn-3000x1750.jpg" alt="Exterior view of Kitoki Inn surrounded by trees">
             </div>
+            <div class="gallery-item medium"><img src="images/2101-kitoki-inn-1200x1750.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="gallery-item medium"><img src="images/2101-kitoki-inn-1200x1750-2.jpg" alt="Another shot of Kitoki Inn's beautiful natural setting">
+            </div>
+        
+            <div class="gallery-item full-width">
+                <img src="images/2101-kitoki-inn-3000x1750-4.jpg" alt="Exterior view of Kitoki Inn surrounded by trees">
+            </div>
+            <div class="gallery-item large"><img src="images/2101-kitoki-inn-3000x1750-6.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="gallery-item large"><img src="images/2101-kitoki-inn-1200x1750-4.jpg" alt="Small photo of Kitoki Inn's entrance"></div>
+            <div class="gallery-item small"><img src="images/2101-kitoki-inn-1200x1750-4.jpg" alt="Small photo of Kitoki Inn's entrance"></div>
+            <div class="gallery-item medium"><img src="images/2101-kitoki-inn-1200x1750-4.jpg" alt="Another shot of Kitoki Inn's beautiful natural setting"></div>
             <!-- Large image with descriptive text beside it -->
             <div class="gallery-item large">
-                <img src="images/REPLACE-690x966.jpg" alt="Exterior view of Kitoki Inn surrounded by trees">
-               <p class="gallery-caption">This is the caption text that will appear to the right of the image. It provides context or explanation about the image displayed.                    The logo mark combines the English interpretation of 'tree and spirit' with traditional Kanji symbols, using the symbol of trees to create a bold and simple representation of nature.
+                <img src="images/2101-kitoki-inn-1200x1750-4.jpg" alt="Exterior view of Kitoki Inn surrounded by trees">
+               <p class="gallery-caption">This is the caption text that will appear to the right of the image. It provides context or explanation about the image displayed. The logo mark combines the English interpretation of 'tree and spirit' with traditional Kanji symbols, using the symbol of trees to create a bold and simple representation of nature.
                 </p>
             </div>
-            <!-- Standard gallery images -->
-            <div class="gallery-item small"><img src="images/REPLACE-690x966.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
-            <div class="gallery-item full-width"><img src="images/4-2101-kitoki-inn-1366x786.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
-            <div class="gallery-item small"><img src="images/REPLACE-690x966.jpg" alt="Small photo of Kitoki Inn's entrance"></div>
-            <div class="gallery-item medium"><img src="images/REPLACE-690x966.jpg" alt="Another shot of Kitoki Inn's beautiful natural setting"></div>
+            <div class="gallery-item small"><img src="images/2101-kitoki-inn-1200x1750-1.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="gallery-item small"><img src="images/2101-kitoki-inn-1200x1750-1.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="gallery-item medium"><img src="images/2101-kitoki-inn-1200x1750-1.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="gallery-item small"><img src="images/2101-kitoki-inn-1200x1750-1.jpg" alt="Small photo of Kitoki Inn's entrance"></div>
+            <div class="gallery-item medium"><img src="images/2101-kitoki-inn-1750x1020-1.jpg" alt="Another shot of Kitoki Inn's beautiful natural setting"></div>
         </section>
     </div>
 </div>
 
-        <!-- Credits Section -->
-        <div class="project-details">
-            <div>
-                <h3>Credits</h3>
+<!-- Credits Section -->
+<div class="two-column-layout">
+    <div class="left-column"><!-- Empty -->
+
+    </div>
+    
+        <div class="right-column">
+            <section>
+                <div class="project-text">
+                    <h3>CREDITS</h3>
                 <p class="small-body">Creative Direction: Phoebe Glasfurd<br>Brand: Mitsumi Kawai and Rob Leadley</p>
-            </div>
+                </div>
+            </section>
         </div>
 
-    </main>
+</div>
+
+</main>
 
 <!-- Footer Section -->
 <footer class="footer">
