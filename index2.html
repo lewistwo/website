@@ -13,181 +13,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lewis Rowley</title>
-    <title>Protected Page</title>
-   <script>
-        function checkPassword() {
-            const password = prompt("Enter password to access this page:");
-            if (password === "YourPassword") {
-                alert("Access granted");
-                return true;
-            } else {
-                alert("Incorrect password. Redirecting...");
-                window.location.href = "error.html"; // Redirect or restrict access
-                return false;
-            }
-        }
-    </script>
+    <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="home-page">
 
-    <!-- Navigation Bar -->
-    <nav class="navbar" aria-label="Main Navigation">
-        <div class="navbar-container">
-            <div class="navbar-brand">
-                <a href="index.html">LEWIS ROWLEY</a>
-            </div>
-            <ul>
-                <li><a href="index.html">INDEX</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- Navigation Bar -->
+<nav class="navbar" aria-label="Main Navigation">
+    <ul>
+        <li><a href="index.html" class="navbar-body">LEWIS ROWLEY</a></li>
+        <li><a href="index.html" class="navbar-body">WORK</a></li>
+        <li><a href="about.html" class="navbar-body">ABOUT</a></li>
+        <li><a href="#sketchbook" class="navbar-body">SKETCHBOOK</a></li>
+    </ul>
+</nav>
 
 <!-- Main Content Area -->
 <main class="main-content">
 
-    <!-- Introduction Section Above the Gallery -->
+    <!-- Introduction Section Above the Gallery
 <section class="intro-section">
     <div class="project-text">
         <h2>DESIGN</h2>
 <p class="subheader">
          Specialising in Visual Identity, Digital Design, Print, Art Direction</p>
+</section> -->
+
+
+<!-- Gallery Section -->
+<section class="content-wrapper">
+    <div class="gallery">
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2101-kitoki-inn-1080x1500@2x.jpg" alt="kitoki inn" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">kitoki inn</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2311-bici-1080x1500@2x.jpg" alt="Bicicletta" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Bicicletta</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2306-ama-bar-1080x1500@2x.jpg" alt="AMA Bar" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">AMA Bar</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2103-henrie-1080x1500@2x.jpg" alt="Henrie" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Henrie</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2310-nowadays-1080x1500@2x.jpg" alt="Nowadays" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Nowadays</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2304-goodfish-seafood-1080x1500@2x.jpg" alt="Goodfish Seafood" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Goodfish Seafood</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2308-luxton-1080x1500@2x.jpg" alt="Luxton" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Luxton</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2205-aer-skinlab-1080x1500@2x.jpg" alt="Aer Skinlab" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Aer Skinlab</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2112-nita-lake-lodge-1080x1500@2x.jpg" alt="Nita Lake Lodge" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Nita Lake Lodge</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2111-lumine-coffee-1080x1500@2x.jpg" alt="Lumine Coffee" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Lumine Coffee</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2008-pure-sunfarms-1080x1500@2x.jpg" alt="Pure Sunfarms" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Pure Sunfarms</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-2102-small-victory-1080x1500@2x.jpg" alt="Small Victory" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Small Victory</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-1905-nike-youre-it-1080x1500@2x.jpg" alt="Nike You're It" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Nike You're It</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-1910-nike-xcat-1080x1500@2x.jpg" alt="Nike X-Cat" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Nike X-Cat</div>
+        </a>
+        <a href="project1.html" class="gallery-item">
+            <img src="images/index-1910-nike-holiday-1080x1500@2x.jpg" alt="Nike Holiday" class="rotate-on-hover">
+            <div class="gallery-item-subtitle">Nike Holiday</div>
+        </a>
+    </div>
 </section>
-
-    <!-- Gallery Section -->
- <section class="content-wrapper">
-        <div class="gallery">
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 1</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 2</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 3</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 1</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 2</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 3</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 1</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 2</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 3</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 1</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 2</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 3</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 1</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 2</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 3</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 1</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 2</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 3</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 1</div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a href="project1.html">
-                    <img src="images/REPLACE-690x966.jpg" alt="Project 1" class="rotate-on-hover">
-                    <div class="gallery-item-subtitle">Subtitle 2</div>
-                </a>
-            </div>
-        </div>
-    </section>
 </main>   
-
 
 <!-- Footer Section -->
 <footer class="footer">
     <div class="footer-left">
-        <p class="small-body"><a href="#" class="footer-link">Identity</a>, <a href="#" class="footer-link">Art Direction</a> and <a href="#" class="footer-link">Design</a> for sport, lifestyle, and hospitality industries. Based in London.</p>
+        <p class="small-body">
+            <a href="#" class="footer-link">Identity</a>, 
+            <a href="#" class="footer-link">Art Direction</a> and 
+            <a href="#" class="footer-link">Design</a> for sport, lifestyle, and hospitality industries. Based in London.
+        </p>
     </div>
     <div class="footer-right">
         <p class="small-body">© All Rights Reserved 2024</p>
