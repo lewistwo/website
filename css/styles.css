@@ -1,576 +1,118 @@
-/* Reset */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-/* Global Styles */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding-top: 180px;
-    font-family: 'Arial', Helvetica, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 500;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-size: 0.686rem;
-    line-height: 1.102rem;
-/* text-shadow: 0.5px 0px 6px rgb(201, 201, 201); */
-    background-color: #fcfbfa;
-}
-
-/* Main content area */
-.main-content {
-    flex-grow: 1;
-    margin: 30px;
-    transition: all 0.1s ease;
-}
-
-/* Typography */
-.large-body {
-    margin-top: 0;
-    font-size: 1.586rem;
-    font-weight: 400;
-    letter-spacing: 0.0139rem;
-    line-height: 2rem;
-    color: #111;
-    max-width: 900px;
-    padding-bottom: 30px;
-}
-
-.default-body {
-    margin-top: 0;
-    font-size: 1.0417rem;
-    font-weight: 400;
-    letter-spacing: 0.0139rem;
-    line-height: 1.302rem;
-    color: #111;
-    padding-bottom: 10px;
-    max-width: 600px;
-    margin-bottom: 30px;
-}
-
-.small-body {
-    margin-top: 0;
-    font-size: 0.886rem; 
-    font-weight: 400;
-    letter-spacing: 0.0139rem;
-    line-height: 1.102rem;
-    color: #111;
-    max-width: 800px;
-}
-
-.small-body ul {
-    list-style-type: none; /* Removes bullet points */
-    padding: 0; /* Removes default padding */
-}
-
-.small-body ul li {
-    margin-bottom: 3px; /* Adds space between each list item */
-}
-
-h1, h2, h3, .subheader, p {
-    margin-top: 0;
-}
-
-h1 {
-    font-size: 1.486rem;
-    font-weight: 400;
-    letter-spacing: 0.0139rem;
-    text-transform: uppercase;
-    line-height: 0.6;
-    padding-bottom: 30px;
-}
-
-h2 {
-    font-size: 1.072rem;
-    font-weight: 400;
-    letter-spacing: 0.0139rem;
-    text-transform: uppercase;
-    line-height: 0.6;
-    padding-top: 40px;
-    padding-bottom: 20px;
-}
-
-h3 {
-    font-size: 0.886rem;
-    font-weight: 400;
-    letter-spacing: 0.0139rem;
-    line-height: 0.6;
-    padding-bottom: 10px;
-}
-
-p {
-    font-size: 0.786rem;
-}
-
-.footer .small-body {
-    font-size: 0.886rem;
-    font-weight: 400;
-    letter-spacing: 0.0139rem;
-    line-height: 1.302rem;
-}
-
-li {
-    display: flex;
-    gap: 20px;
-}
-
-/* Initial Navbar Style */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    min-height: 60px;
-    z-index: 1000;
-    padding: 20px 30px;
-    background-color: transparent;
-    color: #111;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Scrolled Navbar Style */
-.navbar.scrolled {
-    background: linear-gradient(to bottom, #fcfbfa 100%, rgba(255, 255, 255, 0.5) 0%, transparent 90%);
-    transition-delay: 1s;
-}
-
-.navbar ul {
-    list-style-type: none;
-    display: grid; /* Use grid layout */
-    grid-template-columns: repeat(4, 25%); /* 4 columns, each 25% width */
-    padding: 0;
-    margin: 0;
-    width: 100%; /* Ensure it spans the full width of the navbar */
-    align-items: center; /* Align items vertically */
-    justify-content: center; /* Center content if needed */
-}
-
-.navbar ul li {
-    display: flex;
-    justify-content: flex-start; /* Align links to the left within their grid cell */
-}
-
-.navbar ul li a, .navbar-body a {
-    text-decoration: none;
-    font-size: 1.486rem;
-    font-weight: 500;
-    letter-spacing: 0.0139rem;
-    color: #111;
-    transition: transform 0.3s ease;
-    text-align: left;
-}
-
-/* Layout Sections */
-.full-screen {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #111;
-}
-
-.centered-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 0;
-}
-
-/* Project Details Section */
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 120px;
-}
-
-.content-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1920px;
-    width: 100%;
-    justify-content: space-evenly;
-    margin: 0 auto;
-}
-
-/* Two-Column Layout */
-.two-column-layout {
-    display: flex;
-    justify-content: center;
-    max-width: 1920px;
-    margin: 0 auto;
-    width: 100%;
-    align-items: stretch;
-}
-
-.left-column, .right-column {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    flex: 1;
-    box-sizing: border-box;
-}
-
-.left-column {
-    flex: 1;
-    width: 25%; /* The column width remains unaffected */
-}
-
-.right-column {
-    flex: 3;
-}
-
-.row {
-    display: flex;
-    width: 100%; /* Full-width container */
-}
-
-.box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
-}
-
-/* Gallery Section */
-.gallery {
-    display: grid;
-    gap: 60px;
-    grid-template-columns: repeat(6, 1fr);
-    max-width: 1920px;
-    margin: 0 auto;
-}
-
-.gallery-item {
-    display: block; /* Ensure the parent anchor tag behaves like a block */
-    position: relative;
-    text-decoration: none; /* Remove underline for the parent link */
-    padding: 0;
-    margin: 0;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.15s ease;
-    user-drag: none;
-}
-
-.gallery-item-subtitle {
-    margin-top: 10px; /* Add space between the image and subtitle */
-    text-align: left; /* Align text to the left */
-    text-transform: uppercase;
-    font-size: 1.072rem; /* Adjust font size for readability */
-    font-weight: 400;
-    line-height: 1.2rem;
-    letter-spacing: 0.02rem;
-    color: #000; /* Change color to black */
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.15s ease; /* Smooth transition */
-}
-
-.gallery-item:hover img {
-    transform: rotate(3deg); /* Rotate the image on hover */
-}
-
-.gallery-item:hover .gallery-item-subtitle {
-    opacity: 1; /* Show subtitle on hover */
-}
-
-/* Optional: Prevent hover effects on links interfering */
-.gallery-item-subtitle {
-    pointer-events: none; /* Subtitle doesn't interrupt hover behavior */
-}
-
-/* Image Gallery Section */
-.image-gallery {
-    display: grid;
-    position: relative;
-    gap: 40px;
-    row-gap: 270px;
-    grid-template-columns: repeat(6, 1fr);
-    align-items: start;
-    max-width: 1920px;
-    margin: 0 auto;
-}
-
-/* Caption Styling */
-.image-caption {
-    max-width: 70%;
-    padding-top: 30px;
-    margin-left: 20px;
-    font-size: 0.786rem;
-    line-height: 1.102rem;
-    color: #111;
-    text-align: left;
-    max-width: 600px;
-}
-
-/* Image Sizes */
-.full-width {
-    grid-column: span 6;
-}
-
-.large {
-    grid-column: span 4;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.medium {
-    grid-column: span 3;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.small {
-    grid-column: span 2;
-    align-self: end; 
-}
-
-/* Footer Section Styling */
-.footer {
-    display: flex; /* Enable Flexbox layout */
-    flex-direction: row; /* Arrange children in a row */
-    justify-content: space-between; /* Space between columns */
-    align-items: flex-start; /* Align items to the top of their container */
-    padding: 20px 30px; /* Add padding for spacing */
-    margin-top: 360px;
-}
-
-/* Left column styling */
-.footer-left {
-    flex: 1; /* Allow this column to take up space proportionally */
-    max-width: 50%; /* Prevent it from taking too much space */
-}
-
-/* Right column styling */
-.footer-right {
-    flex: 4; /* Allow this column to take up space proportionally */
-    text-align: left;
-    max-width: 50%; /* Prevent it from taking too much space */
-}
-
-/* Footer links */
-.footer-link {
-    color: #111;
-    text-decoration: none; /* Remove underline */
-}
-
-.footer-link:hover {
-    text-decoration: underline; /* Optional: Add underline on hover */
-}
-
-/* Reusable Hover Animation */
-.rotate-on-hover {
-    display: inline-block;
-    transition: transform 0.1s ease;
-}
-
-.rotate-on-hover:hover {
-    animation: rotateOnHover 0.25s forwards;
-}
-
-/* Keyframe Animation */
-@keyframes rotateOnHover {
-    0% {
-        transform: rotate(2deg);
-    }
-    100% {
-        transform: rotate(3deg);
-    }
-}
-
-/* Hover Animation for Text Links */
-.rotate-on-hover-impact {
-    display: inline-block;
-    transition: transform 0.15s ease;
-}
-
-.rotate-on-hover-impact:hover {
-    animation: rotateOnHoverImpact 0.15s forwards;
-}
-
-@keyframes rotateOnHoverImpact {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(-8deg);
-    }
-}
-
-/* Mobile-specific Styles */
-@media (max-width: 768px) {
-    .main-content {
-        margin: 0 15px;
-        margin-bottom: 80px;
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: calc(100vh - 60px);
-        width: 100%;
-    }
-
-    .content-wrapper {
-        padding: 0;
-        gap: 20px;
-        width: 100%;
-    }
-
-
-   /* Navbar styling for mobile */
-   .navbar {
-    padding: 15px;
-    min-height: 70px;
-    display: flex;
-    flex-direction: column; /* Stack brand and links vertically */
-    justify-content: flex-start;
-    align-items: center; /* Center navbar content */
-    gap: 10px; /* Space between brand and links */
-}
-
-/* Navbar brand styling */
-.navbar-brand {
-    font-size: 1.572rem;
-}
-
-/* Navbar links */
-.navbar ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center; /* Center the links horizontally */
-    gap: 30px; /* Space between Index and About */
-    padding: 0;
-    margin: 0;
-}
-
-/* Navbar link styling */
-.navbar ul li a, .navbar-brand a {
-    font-size: 1.572rem;
-    letter-spacing: 0.0139rem;
-    color: #111;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-    /* Typography */
-    .gallery-item-subtitle {
-        margin-top: 20px;
-        font-size: 2.886rem;
-        line-height: 2.502rem;
-    }
-
-/* Two-Column Layout Stacking for Mobile */
-.two-column-layout {
-    display: flex;
-    flex-direction: column; /* Stack columns vertically */
-    width: 100%; /* Ensure full width */
-    margin: 0 auto; /* Center layout */
-}
-
-    .left-column {
-        padding-right: 0;
-        padding-bottom: 30px;
-    }
-
-/* Footer Styles */
-.footer {
-    flex-direction: column; /* Stack columns vertically */
-    align-items: center; /* Center align text */
-}
-
-.footer-left, .footer-right {
-    text-align: center; /* Center-align text for both columns */
-    max-width: 100%; /* Allow full width */
-    margin-bottom: 10px; /* Add space between stacked sections */
-}
-
-/* Disable rotate-on-hover animations without affecting clicks */
-.rotate-on-hover,
-.rotate-on-hover-impact {
-    animation: none; /* Disables any hover-triggered animation */
-    transition: none; /* Removes any transform transitions on hover */
-}
-
-    /* Gallery Section */
-.gallery,
-.image-gallery {
-    display: grid; /* Ensure gallery is using grid */
-    gap: 60px;
-    grid-template-columns: 1fr; /* Stack images in one column */
-    margin: 0 auto; /* Center the gallery */
-    width: 100%; /* Ensure full width */
-}
-
-/* Gallery Item Styling */
-.gallery-item {
-    display: flex;
-    flex-direction: column; /* Stack image and caption vertically */
-    align-items: center; /* Center items */
-    margin-bottom: 20px;
-    width: 100%; /* Ensure items take up full width */
-}
-
-/* Always show the subtitle without hover */
-.gallery-item .gallery-item-subtitle {
-    opacity: 1; /* Make subtitle always visible */
-}
-
-/* Disable hover effects for touchscreens using media queries */
-@media (hover: none) and (pointer: coarse) {
-    .gallery-item:hover img,
-    .gallery-item:hover .gallery-item-subtitle {
-        transform: none;
-        opacity: 1; /* Optionally keep the subtitle visible */
-    }
-}
-
-/* Disable rotate-on-hover animations without affecting clicks */
-.rotate-on-hover,
-.rotate-on-hover-impact {
-    animation: none; /* Disables any hover-triggered animation */
-    transition: none; /* Removes any transform transitions on hover */
-}
-
-}
+<!DOCTYPE html>
+
+<!--
+    —————————————————————————————————————————————————
+    Lewis Rowley                         © 2024
+    Website Design
+    —————————————————————————————————————————————————
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lewis Rowley</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="project-page">
+
+<!-- Navigation Bar -->
+<nav class="navbar" aria-label="Main Navigation">
+    <ul>
+            <li><a href="index.html" class="navbar-body">LEWIS ROWLEY</a></li>
+            <li><a href="index.html" class="navbar-body">WORK</a></li>
+            <li><a href="about.html" class="navbar-body">ABOUT</a></li>
+            <li><a href="#sketchbook" class="navbar-body">SKETCHBOOK</a></li>
+    </ul>
+</nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+        <div class="two-column-layout">
+            <div class="left-column"><!-- Empty --></div>
+            
+            <div class="right-column">
+                <section>
+                    <div class="project-text">
+                        <h1>Kitoki Inn</h1>
+                        <p class="large-body">Kitoki Inn offers a Japanese-inspired experience in the stunning surroundings of Bowen Island, British Columbia. The term 'kitoki' reflects themes of folklore, translating to 'tree and spirit,' fostering a renewed connection between oneself and the natural world. This retreat follows the traditional Japanese guest house style, nestled amidst woodlands and forest walks. Embracing the concept of 'bathing in nature,' Kitoki Inn provides bathhouse and spa facilities to rejuvenate and restore the mind and body.</p>
+                    </div>
+                </section>
+            </div>
+    
+        </div>
+    
+
+        <!-- Project Section -->
+<div class="content">
+    <div class="content-wrapper">
+        <section class="project-images">
+            <!-- Full-width image -->
+            <div class="project-item full-width">
+                <img src="images/2101-kitoki-inn-3000x1750.jpg" alt="Exterior view of Kitoki Inn surrounded by trees">
+            </div>
+            <div class="project-item medium"><img src="images/2101-kitoki-inn-1200x1750.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="project-item medium"><img src="images/2101-kitoki-inn-1200x1750-2.jpg" alt="Another shot of Kitoki Inn's beautiful natural setting">
+            </div>
+        
+            <div class="project-item full-width">
+                <img src="images/2101-kitoki-inn-3000x1750-4.jpg" alt="Exterior view of Kitoki Inn surrounded by trees">
+            </div>
+            <div class="project-item large"><img src="images/2101-kitoki-inn-3000x1750-6.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="project-item large"><img src="images/2101-kitoki-inn-1200x1750-4.jpg" alt="Small photo of Kitoki Inn's entrance"></div>
+            <div class="project-item small"><img src="images/2101-kitoki-inn-1200x1750-4.jpg" alt="Small photo of Kitoki Inn's entrance"></div>
+            <div class="project-item medium"><img src="images/2101-kitoki-inn-1200x1750-4.jpg" alt="Another shot of Kitoki Inn's beautiful natural setting"></div>
+            <!-- Large image with descriptive text beside it -->
+            <div class="project-item large">
+                <img src="images/2101-kitoki-inn-1200x1750-4.jpg" alt="Exterior view of Kitoki Inn surrounded by trees">
+               <p class="image-caption">This is the caption text that will appear to the right of the image. It provides context or explanation about the image displayed. The logo mark combines the English interpretation of 'tree and spirit' with traditional Kanji symbols, using the symbol of trees to create a bold and simple representation of nature.
+                </p>
+            </div>
+            <div class="project-item small"><img src="images/2101-kitoki-inn-1200x1750-1.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="project-item small"><img src="images/2101-kitoki-inn-1200x1750-1.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="project-item medium"><img src="images/2101-kitoki-inn-1200x1750-1.jpg" alt="Exterior view of Kitoki Inn surrounded by trees"></div>
+            <div class="project-item small"><img src="images/2101-kitoki-inn-1200x1750-1.jpg" alt="Small photo of Kitoki Inn's entrance"></div>
+            <div class="project-item medium"><img src="images/2101-kitoki-inn-1750x1020-1.jpg" alt="Another shot of Kitoki Inn's beautiful natural setting"></div>
+        </section>
+    </div>
+</div>
+
+<!-- Credits Section -->
+<div class="two-column-layout">
+    <div class="left-column"><!-- Empty -->
+
+    </div>
+    
+        <div class="right-column">
+            <section>
+                <div class="project-text">
+                    <h3>CREDITS</h3>
+                <p class="small-body">Creative Direction: Phoebe Glasfurd<br>Brand: Mitsumi Kawai and Rob Leadley</p>
+                </div>
+            </section>
+        </div>
+
+</div>
+
+</main>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-left">
+        <p class="small-body"><a href="#" class="footer-link">Identity</a>, <a href="#" class="footer-link">Art Direction</a> and <a href="#" class="footer-link">Design</a> for sport, lifestyle, and hospitality industries. Based in London.</p>
+    </div>
+    <div class="footer-right">
+        <p class="small-body">© All Rights Reserved 2024</p>
+    </div>
+</footer>
+
+</body>
+
+<!-- Link to external JavaScript file -->
+<script src="scripts/scripts.js"></script>
+
+</html>
