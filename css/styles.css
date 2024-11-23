@@ -77,7 +77,7 @@ body {
 
 .small-body {
     margin-top: 0;
-    font-size: 0.886rem; 
+    font-size: 0.786rem; 
     font-weight: 400;
     letter-spacing: 0.0139rem;
     line-height: 1.102rem;
@@ -114,7 +114,7 @@ h1 {
     letter-spacing: 0.0139rem;
     text-transform: uppercase;
     line-height: 0.6;
-    padding-bottom: 30px;
+    padding: 0;
     text-align: center; /* Ensure text is centred */
     margin: auto; /* Remove default margin */
 }
@@ -142,7 +142,7 @@ p {
 }
 
 .footer .small-body {
-    font-size: 0.886rem;
+    font-size: 0.786rem;
     font-weight: 400;
     letter-spacing: 0.0139rem;
     line-height: 1.302rem;
@@ -152,6 +152,51 @@ li {
     display: flex;
     gap: 20px;
 }
+
+.menu-button {
+    display: none; /* Hidden by default for larger screens */
+    position: fixed;
+    top: 16px;
+    left: 10px;
+    z-index: 1000;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown menu styles */
+  .dropdown-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: fcfbfa;
+    z-index: 999;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .menu-header {
+    text-align: center;
+    font-size: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+    width: 100%;
+  }
+  
+  .menu-item {
+    text-align: center;
+    font-size: 18px;
+    padding: 15px 0;
+    width: 100%;
+    border-bottom: 1px solid fcfbfa;
+    box-sizing: border-box;
+  }
 
 /* Initial Navbar Style */
 .navbar {
@@ -281,7 +326,7 @@ li {
 /* Gallery Section */
 .gallery {
     display: grid;
-    gap: 60px;
+    gap: 30px;
     grid-template-columns: repeat(6, 1fr);
     max-width: 1920px;
     margin: 0 auto;
@@ -304,24 +349,41 @@ li {
 }
 
 .gallery-item-subtitle {
-    margin-top: 10px; /* Add space between the image and subtitle */
+    margin-top: 12px; /* Space between the image and subtitle */
+    margin-bottom: 6px;
     text-align: left; /* Align text to the left */
     text-transform: uppercase;
-    font-size: 1.072rem; /* Adjust font size for readability */
-    font-weight: 400;
-    line-height: 1.2rem;
-    letter-spacing: 0.02rem;
+    font-size: 1rem; /* Adjust font size for readability */
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0.0139rem; /* Corrected the unit for letter-spacing */
     color: #000; /* Change color to black */
     opacity: 0; /* Hidden by default */
     transition: opacity 0.15s ease; /* Smooth transition */
 }
 
-.gallery-item:hover img {
-    transform: rotate(3deg); /* Rotate the image on hover */
+/* New body copy styling */
+.gallery-item-body {
+    margin-top: 6px; /* Space between the image and subtitle */
+    font-size: 0.6rem; 
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.0239rem;
+    line-height: 0.6rem;
+    color: #333; /* Set a lighter color for the body text */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.15s ease; /* Smooth transition for appearance */
 }
 
-.gallery-item:hover .gallery-item-subtitle {
-    opacity: 1; /* Show subtitle on hover */
+/* To show both subtitle and body copy on hover */
+.gallery-item:hover .gallery-item-subtitle,
+.gallery-item:hover .gallery-item-body {
+    opacity: 1; /* Make both the subtitle and body text visible on hover */
+}
+
+
+.gallery-item:hover img {
+    transform: rotate(3deg); /* Rotate the image on hover */
 }
 
 /* Optional: Prevent hover effects on links interfering */
@@ -402,25 +464,20 @@ li {
 
 /* Footer Section Styling */
 .footer {
-    display: flex; /* Enable Flexbox layout */
-    flex-direction: row; /* Arrange children in a row */
+    display: flex;
+    flex-direction: row; /* Default to row for desktop */
     justify-content: space-between; /* Space between columns */
     align-items: flex-start; /* Align items to the top of their container */
-    padding: 20px 30px; /* Add padding for spacing */
+    padding: 20px; /* Add padding for spacing */
     margin-top: 360px;
 }
 
-/* Left column styling */
-.footer-left {
-    flex: 1; /* Allow this column to take up space proportionally */
-    max-width: 50%; /* Prevent it from taking too much space */
-}
-
-/* Right column styling */
-.footer-right {
-    flex: 4; /* Allow this column to take up space proportionally */
-    text-align: left;
-    max-width: 50%; /* Prevent it from taking too much space */
+/* General column styling */
+.footer-column {
+    flex: 1; /* Ensure equal space for all columns */
+    max-width: 25%; /* Each column takes up a quarter of the container */
+    text-align: left; /* Optional: Align text to the left */
+    padding: 0 10px; /* Add some horizontal padding for spacing */
 }
 
 /* Footer links */
@@ -433,47 +490,35 @@ li {
     text-decoration: underline; /* Optional: Add underline on hover */
 }
 
-/* Reusable Hover Animation */
-.rotate-on-hover {
-    display: inline-block;
-    transition: transform 0.1s ease;
-}
-
-.rotate-on-hover:hover {
-    animation: rotateOnHover 0.25s forwards;
-}
-
-/* Keyframe Animation */
-@keyframes rotateOnHover {
-    0% {
-        transform: rotate(2deg);
-    }
-    100% {
-        transform: rotate(3deg);
+@media (max-width: 1280px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* 4 columns */
+        margin-bottom: 80px;
     }
 }
 
-/* Hover Animation for Text Links */
-.rotate-on-hover-impact {
-    display: inline-block;
-    transition: transform 0.15s ease;
-}
-
-.rotate-on-hover-impact:hover {
-    animation: rotateOnHoverImpact 0.15s forwards;
-}
-
-@keyframes rotateOnHoverImpact {
-    0% {
-        transform: rotate(0deg);
+@media (min-width: 768px) {
+    .rotate-on-hover {
+        display: inline-block;
+        transition: transform 0.1s ease;
     }
-    100% {
-        transform: rotate(-8deg);
+
+    .rotate-on-hover:hover {
+        animation: rotateOnHover 0.25s forwards;
+    }
+
+    @keyframes rotateOnHover {
+        0% {
+            transform: rotate(2deg);
+        }
+        100% {
+            transform: rotate(3deg);
+        }
     }
 }
 
 /* Mobile-specific Styles */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .main-content {
         margin: 0 15px;
         margin-bottom: 80px;
@@ -494,119 +539,116 @@ li {
         width: 100%;
     }
 
-
-   /* Navbar styling for mobile */
-   .navbar {
-    padding: 15px;
-    min-height: 70px;
-    display: flex;
-    flex-direction: column; /* Stack brand and links vertically */
-    justify-content: flex-start;
-    align-items: center; /* Center navbar content */
-    gap: 10px; /* Space between brand and links */
-}
-
-/* Navbar brand styling */
-.navbar-brand {
-    font-size: 1.572rem;
-}
-
-/* Navbar links */
-.navbar ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center; /* Center the links horizontally */
-    gap: 30px; /* Space between Index and About */
-    padding: 0;
-    margin: 0;
-}
-
-/* Navbar link styling */
-.navbar ul li a, .navbar-brand a {
-    font-size: 1.572rem;
-    letter-spacing: 0.0139rem;
-    color: #111;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-    /* Typography */
-    .gallery-item-subtitle {
-        margin-top: 20px;
-        font-size: 2.886rem;
-        line-height: 2.502rem;
+    .navbar {
+        display: none; /* Hide the entire navbar */
     }
 
-/* Two-Column Layout Stacking for Mobile */
-.two-column-layout {
+    .dropdown-menu {
+        display: flex; /* Make sure dropdown is visible */
+        flex-direction: column; /* Stack items vertically */
+        background-color: #fcfbfa; /* Optional: Add a background color */
+        padding: 1rem; /* Optional: Add padding */
+        width: 100%; /* Make it span the full width of the screen */
+    }
+
+    .menu-button {
+        display: block;
+      }
+    
+      .dropdown-menu.hidden {
+        display: none;
+      }
+      
+      .dropdown-menu.visible {
+        display: flex; /* Show the menu when the 'visible' class is applied */
+    }
+
+    /* Two-Column Layout Stacking for Mobile */
+    .two-column-layout {
     display: flex;
     flex-direction: column; /* Stack columns vertically */
     width: 100%; /* Ensure full width */
     margin: 0 auto; /* Center layout */
-}
+    }
 
     .left-column {
         padding-right: 0;
         padding-bottom: 30px;
     }
 
-/* Footer Styles */
-.footer {
+    /* Footer Styles */
+    .footer {
     flex-direction: column; /* Stack columns vertically */
     align-items: center; /* Center align text */
-}
+    }
 
-.footer-left, .footer-right {
+    .footer-left, .footer-right {
     text-align: center; /* Center-align text for both columns */
     max-width: 100%; /* Allow full width */
     margin-bottom: 10px; /* Add space between stacked sections */
-}
-
-/* Disable rotate-on-hover animations without affecting clicks */
-.rotate-on-hover,
-.rotate-on-hover-impact {
-    animation: none; /* Disables any hover-triggered animation */
-    transition: none; /* Removes any transform transitions on hover */
-}
-
-    /* Gallery Section */
-.gallery,
-.image-gallery {
-    display: grid; /* Ensure gallery is using grid */
-    gap: 60px;
-    grid-template-columns: 1fr; /* Stack images in one column */
-    margin: 0 auto; /* Center the gallery */
-    width: 100%; /* Ensure full width */
-}
-
-/* Gallery Item Styling */
-.gallery-item {
-    display: flex;
-    flex-direction: column; /* Stack image and caption vertically */
-    align-items: center; /* Center items */
-    margin-bottom: 20px;
-    width: 100%; /* Ensure items take up full width */
-}
-
-/* Always show the subtitle without hover */
-.gallery-item .gallery-item-subtitle {
-    opacity: 1; /* Make subtitle always visible */
-}
-
-/* Disable hover effects for touchscreens using media queries */
-@media (hover: none) and (pointer: coarse) {
-    .gallery-item:hover img,
-    .gallery-item:hover .gallery-item-subtitle {
-        transform: none;
-        opacity: 1; /* Optionally keep the subtitle visible */
     }
-}
+    
+    /* Gallery Section */
+    .gallery,
+    .image-gallery {
+        display: grid;
+        gap: 60px;
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+        width: 100%;
+    }
 
-/* Disable rotate-on-hover animations without affecting clicks */
-.rotate-on-hover,
-.rotate-on-hover-impact {
-    animation: none; /* Disables any hover-triggered animation */
-    transition: none; /* Removes any transform transitions on hover */
-}
+    .gallery-item-subtitle {
+        margin-top: 10px;
+        font-size: 3rem;
+        line-height: 2.502rem;
+    }
 
+    /* Gallery Item Styling */
+    .gallery-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+       /* Make sure subtitle is visible */
+       .gallery-item .gallery-item-subtitle {
+        font-size: 1.6rem; /* Adjust the font size */
+        line-height: 2rem; /* Set line-height for readability */
+        opacity: 1;
+        margin-top: 20px;
+    }
+
+    /* Make sure body copy is also visible */
+    .gallery-item .gallery-item-body {
+        opacity: 1; /* Always show the body text on mobile */
+        margin-top: 5px; /* Add space above the body copy if needed */
+    }
+
+    /* Optional: If you want to adjust the styling of the body text on mobile */
+    .gallery-item-body {
+        font-size: 1rem; /* Adjust the font size */
+        font-weight: 500;
+        line-height: 1.5rem; /* Set line-height for readability */
+        color: #333; /* Slightly lighter color than subtitle */
+    }
+
+    .footer {
+        flex-direction: column; /* Stack all main elements vertically */
+        align-items: center; /* Optional: Center-align the stacked items */
+    }
+
+    .footer-group {
+        flex: 1; /* Group behaves as one column */
+        max-width: 100%; /* Takes full width */
+        flex-direction: column; /* Stacked child columns */
+    }
+
+    .footer-column {
+        max-width: 100%; /* Each column takes full width */
+        padding: 10px 0; /* Add vertical spacing between columns */
+        text-align: center; /* Optional: Center-align text */
+    }
 }
