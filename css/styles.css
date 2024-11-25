@@ -109,12 +109,12 @@ h1 {
 
 .holding-page h1 {
     align-content: centre;
-    font-size: 1.486rem;
+    padding-top: 0;
+    font-size: 1.386rem;
     font-weight: 400;
     letter-spacing: 0.0139rem;
     text-transform: uppercase;
     line-height: 0.6;
-    padding: 0;
     text-align: center; /* Ensure text is centred */
     margin: auto; /* Remove default margin */
 }
