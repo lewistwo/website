@@ -48,13 +48,33 @@ window.addEventListener("scroll", (() => {
     };
 })());
 
-// Dropdown Menu Logic
-// Select the menu button and dropdown menu
+// Example for opening the menu
 const menuButton = document.querySelector('.menu-button');
 const dropdownMenu = document.querySelector('.dropdown-menu');
+
+menuButton.addEventListener('click', () => {
+  dropdownMenu.classList.toggle('visible');
+  dropdownMenu.classList.toggle('hidden');
+  document.body.classList.toggle('menu-open'); // Disable scrolling when the menu is open
+});
 
 // Add an event listener for the menu button
 menuButton.addEventListener('click', () => {
     // Toggle the "hidden" class to show/hide the dropdown menu
     dropdownMenu.classList.toggle('hidden');
+});
+
+document.addEventListener("scroll", function () {
+    const scrollY = window.scrollY; // Amount of scrolling
+    const fadePoint = 50; // Point at which the fade starts (in pixels)
+    const element = document.querySelector(".project-text");
+
+    if (scrollY < fadePoint) {
+        // Calculate opacity based on scroll distance
+        const opacity = 1 - scrollY / fadePoint;
+        element.style.opacity = opacity;
+    } else {
+        // Fully faded out
+        element.style.opacity = 0;
+    }
 });
