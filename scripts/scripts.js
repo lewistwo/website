@@ -26,48 +26,57 @@ if (modal && modalImage && closeButton) {
     console.error("Modal elements not found in the DOM.");
 }
 
-// Navbar Scroll Effect
-window.addEventListener("scroll", (() => {
-    let throttleTimeout = null; 
-    return () => {
-        if (!throttleTimeout) {
-            throttleTimeout = setTimeout(() => {
-                const navbar = document.querySelector(".navbar");
-                if (navbar) {
-                    if (window.scrollY > 0) {
-                        navbar.classList.add("scrolled");
-                    } else {
-                        navbar.classList.remove("scrolled");
-                    }
+// Navbar and Menu Button Scroll Effect with Throttle
+let throttleTimeout = null; 
+window.addEventListener("scroll", () => {
+    if (!throttleTimeout) {
+        throttleTimeout = setTimeout(() => {
+            const navbar = document.querySelector(".navbar");
+            const menuButton = document.querySelector(".menu-button");
+
+            // Apply the scroll effect to the navbar
+            if (navbar) {
+                if (window.scrollY > 0) {
+                    navbar.classList.add("scrolled");
                 } else {
-                    console.error("Navbar element not found.");
+                    navbar.classList.remove("scrolled");
                 }
-                throttleTimeout = null;
-            }, 100); 
-        }
-    };
-})());
+            } else {
+                console.error("Navbar element not found.");
+            }
+
+            // Apply the scroll effect to the menu button
+            if (menuButton) {
+                if (window.scrollY > 50) {  // You can adjust the scroll threshold
+                    menuButton.classList.add("scrolled");
+                } else {
+                    menuButton.classList.remove("scrolled");
+                }
+            } else {
+                console.error("Menu button element not found.");
+            }
+
+            throttleTimeout = null;
+        }, 100); // Adjust the throttle delay (100ms is typically fine)
+    }
+});
 
 // Example for opening the menu
 const menuButton = document.querySelector('.menu-button');
 const dropdownMenu = document.querySelector('.dropdown-menu');
+const body = document.body;
 
 menuButton.addEventListener('click', () => {
-  dropdownMenu.classList.toggle('visible');
-  dropdownMenu.classList.toggle('hidden');
-  document.body.classList.toggle('menu-open'); // Disable scrolling when the menu is open
+    dropdownMenu.classList.toggle('visible');  // Toggle dropdown visibility
+    body.classList.toggle('menu-open');        // Prevent scrolling when menu is open
 });
 
-// Add an event listener for the menu button
-menuButton.addEventListener('click', () => {
-    // Toggle the "hidden" class to show/hide the dropdown menu
-    dropdownMenu.classList.toggle('hidden');
-});
 
+// Fade effect based on scroll
 document.addEventListener("scroll", function () {
-    const scrollY = window.scrollY; // Amount of scrolling
+    const scrollY = window.scrollY;
     const fadePoint = 50; // Point at which the fade starts (in pixels)
-    const element = document.querySelector(".project-text");
+    const element = document.querySelector(".work-text");
 
     if (scrollY < fadePoint) {
         // Calculate opacity based on scroll distance
@@ -77,4 +86,38 @@ document.addEventListener("scroll", function () {
         // Fully faded out
         element.style.opacity = 0;
     }
+});
+
+
+// Contact Form Submission
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent form from default submission (no page refresh)
+    
+    // Get values of email and message fields
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Basic validation (you can expand this)
+    if (!email || !message) {
+        alert("Please fill in both fields.");
+        return;
+    }
+
+    // Hide the submit button and show the confirmation message
+    document.querySelector(".contact-button").style.display = "none";
+    document.getElementById("confirmation-message").style.display = "block";
+
+    // Clear the form after submission
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+
+    // Optionally hide the confirmation message after a few seconds
+    setTimeout(() => {
+        document.getElementById("confirmation-message").style.display = "none";
+    }, 5000);
+
+    // For actual email sending, use back-end (like PHP, Formspree, or other services)
+    // Example: Simulate sending data (since JavaScript cannot send emails directly)
+    console.log("Email sent to:", email);
+    console.log("Message content:", message);
 });
