@@ -29,7 +29,6 @@ time, mark, audio, video {
 
 body {
     margin: 0;
-    padding-top: 180px;
     font-family: 'Arial', Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
@@ -40,7 +39,33 @@ body {
     min-height: 100vh;
     font-size: 0.686rem;
     line-height: 1.102rem;
-    background-color: #fcfbfa;
+    background-color: #fff;
+}
+
+body.home-page {
+    margin-top: 100px; 
+}
+
+body.work-page {
+    margin-top: 100px; 
+}
+
+body.about-page {
+    margin-top: 100px; 
+}
+
+section.about-text {
+    margin-top: 360px; 
+}
+
+/* Section spacing */
+section {
+    margin-bottom: 30px;
+}
+
+.tab-space {
+    display: inline-block;
+    min-width: 90px; /* Adjust tab width */
 }
 
 /* Main content area */
@@ -58,8 +83,8 @@ body {
     letter-spacing: 0.0139rem;
     line-height: 1.75rem;
     color: #111;
-    max-width: 780px;
-    padding-bottom: 30px;
+    max-width: 700px;
+    padding-bottom: 20px;
 }
 
 .default-body {
@@ -70,27 +95,27 @@ body {
     line-height: 1.302rem;
     color: #111;
     padding-bottom: 10px;
-    max-width: 600px;
+    max-width: 720px;
     margin-bottom: 30px;
 }
 
 .small-body {
-    margin-top: 0;
+    margin-top: 10px;
     font-size: 0.786rem; 
     font-weight: 400;
     letter-spacing: 0.0139rem;
     line-height: 1.102rem;
     color: #111;
-    max-width: 800px;
+    max-width: 500px;
 }
 
 .small-body ul {
-    list-style-type: none; /* Removes bullet points */
-    padding: 0; /* Removes default padding */
+    list-style-type: none;
+    padding: 0;
 }
 
 .small-body ul li {
-    margin-bottom: 3px; /* Adds space between each list item */
+    margin-bottom: 3px;
 }
 
 h1, h2, h3, .subheader, p {
@@ -114,8 +139,8 @@ h1 {
     letter-spacing: 0.0139rem;
     text-transform: uppercase;
     line-height: 0.6;
-    text-align: center; /* Ensure text is centred */
-    margin: auto; /* Remove default margin */
+    text-align: center; 
+    margin: auto; 
 }
 
 h2 {
@@ -124,8 +149,7 @@ h2 {
     letter-spacing: 0.0139rem;
     text-transform: uppercase;
     line-height: 0.6;
-    padding-top: 40px;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
 
 h3 {
@@ -151,42 +175,46 @@ li {
     display: flex;
     gap: 20px;
 }
-  
+
+  /* MOBILE */
   /* Dropdown menu styles */
-  .dropdown-menu {
+.dropdown-menu {
     display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Full height of the viewport */
-    flex-direction: column; /* Stack items vertically */
-    background-color: #fcfbfa; /* Optional: Add a background color */
+    height: 100%;
+    flex-direction: column;
+    background-color: #fff;
     z-index: 999;
-    justify-content: center; /* Center items vertically in the dropdown */
-    align-items: center; /* Center items horizontally */
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* Hide menu by default */
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
   }
 
-  .menu-button {
-    display: block; /* Ensure the button is visible */
+.menu-button {
+    display: block;
     position: fixed;
-    top: 0; /* Align to the top of the viewport */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Offset 50% to ensure centering */
-    width: 100%; /* Full width for the background effect */
-    height: 90px; /* Ensure height is 60px */
+    top: 0; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 90px;
     font-size: 2rem;
     text-transform: uppercase;
     background: transparent;
-    color: #111; /* Adjust text color */
+    color: #111;
     border: none;
     cursor: pointer;
-    text-align: center; /* Center the text within the button */
+    text-align: center;
     z-index: 1000;
+    transition: background 4s ease-in-out, color 1s ease;
 }
   
-  .menu-item {
-    font-size: 4rem;
+.menu-item {
+    font-size: 2rem;
     font-weight: 400;
     letter-spacing: 0.0139rem;
     text-transform: uppercase;
@@ -194,36 +222,39 @@ li {
     color: #111;
     width: 100%;
     box-sizing: border-box;
-    margin: 90px 0; /* Add space between items */
-    display: flex; /* Use flexbox for vertical centering */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-  }
+    margin: 90px 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
 
 .menu-item a {
     text-decoration: none;
-    display: block; /* Ensure links behave like block elements */
+    display: block; 
 }
 
-  .menu-button.scrolled {
-    background: linear-gradient(to bottom, #fcfbfa 100%, rgba(255, 255, 255, 0.5) 0%, transparent 90%);
-    color: #111; /* Change text color for better visibility */
-    transition-delay: 1s; /* Delay the transition effect */
+/* Scrolled Menu Button Styling */
+.menu-button.scrolled {
+    background: linear-gradient(to bottom, #fff 100%, rgba(255, 255, 255, 0.5) 0%, transparent 90%);
+    color: #111; /* Text color for menu button */
+    transition: background 4s ease-in-out, color 2s ease-in-out; /* Same smooth transition for background and color */
 }
 
-  .dropdown-menu.hidden {
+.dropdown-menu.hidden {
     display: none;
-  }
-  
-  .dropdown-menu.visible {
-    display: flex; /* Show the menu when the 'visible' class is applied */
-  }
+}
 
-  body.menu-open {
+.dropdown-menu.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0s 0s; /* Immediate visibility when shown */
+}
+
+body.menu-open {
     overflow: hidden; /* Disable scrolling */
-  }
+}
 
-/* Initial Navbar Style */
+/* Navbar Styling */
 .navbar {
     position: fixed;
     top: 0;
@@ -235,29 +266,28 @@ li {
     color: #111;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Aligns first and last items to the edges */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    justify-content: space-between; 
+    transition: background-color 0.3s ease;
 }
 
-/* Scrolled Navbar Style */
+/* Scrolled Navbar Styling */
 .navbar.scrolled {
-    background: linear-gradient(to bottom, #fcfbfa 100%, rgba(255, 255, 255, 0.5) 0%, transparent 90%);
-    transition-delay: 1s;
+    background: linear-gradient(to bottom, #fff 100%, rgba(255, 255, 255, 0.5) 0%, transparent 90%);
 }
 
 .navbar ul {
     list-style-type: none;
-    display: flex; /* Flexbox for layout */
+    display: flex; 
     padding: 0;
     margin: 0;
-    width: 100%; /* Full width of navbar */
-    justify-content: space-between; /* Equal space between all items */
+    width: 100%; 
+    justify-content: space-between; 
     align-items: center;
 }
 
 .navbar ul li {
     display: flex;
-    justify-content: center; /* Center items within their flex containers */
+    justify-content: center;
 }
 
 .navbar ul li a, .navbar-body a {
@@ -268,15 +298,15 @@ li {
     letter-spacing: 0.0139rem;
     color: #111;
     transition: transform 0.3s ease;
-    text-align: center; /* Center text within the links */
+    text-align: center;
 }
 
 .navbar ul li:first-child {
-    justify-content: flex-start; /* Align the first item to the left */
+    justify-content: flex-start;
 }
 
 .navbar ul li:last-child {
-    justify-content: flex-end; /* Align the last item to the right */
+    justify-content: flex-end;
 }
 
 /* Layout Sections */
@@ -297,7 +327,6 @@ li {
     padding: 0;
 }
 
-/* Project Details Section */
 .content {
     display: flex;
     justify-content: center;
@@ -320,13 +349,14 @@ li {
 /* Two-Column Layout */
 .two-column-layout {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     max-width: 1920px;
     margin: 0 auto;
     width: 100%;
     align-items: stretch;
 }
 
+/* Left and Right Columns */
 .left-column, .right-column {
     display: flex;
     flex-direction: column;
@@ -335,18 +365,19 @@ li {
     box-sizing: border-box;
 }
 
+/* Left Column */
 .left-column {
-    flex: 3;
-    width: 30%; /* The column width remains unaffected */
+    flex: 1;
 }
 
+/* Right Column */
 .right-column {
-    flex: 9;
+    flex: 3;
 }
 
 .row {
     display: flex;
-    width: 100%; /* Full-width container */
+    width: 100%;
 }
 
 .box {
@@ -360,7 +391,7 @@ li {
 .gallery {
     display: grid;
     gap: 20px;
-    row-gap: 180px;
+    row-gap: 90px;
     grid-template-columns: repeat(4, 1fr);
     max-width: 1920px;
     margin: 0 auto;
@@ -405,7 +436,6 @@ li {
     transition: opacity 0.15s ease; /* Smooth transition */
 }
 
-/* New body copy styling */
 .gallery-item-body {
     margin-top: 4px; /* Space between the image and subtitle */
     font-size: 0.586rem; 
@@ -418,7 +448,6 @@ li {
     transition: opacity 0.15s ease; /* Smooth transition for appearance */
 }
 
-/* To show both subtitle and body copy on hover */
 .gallery-item:hover .gallery-item-subtitle,
 .gallery-item:hover .gallery-item-body {
     opacity: 1; 
@@ -433,8 +462,8 @@ li {
     pointer-events: none; /
 }
 
-/* Project Section */
-.project {
+/* Work Section */
+.work {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(12, 1fr);
@@ -442,25 +471,25 @@ li {
     margin: 0 auto;
 }
 
-.project-text {
+.work-text {
     position: fixed; /* Keep it at the top of the viewport */
     width: 100%; /* Span the full width */
-    transition: opacity 0.1s ease; /* Smooth fade-out transition */
+    transition: opacity 0.08s ease; /* Smooth fade-out transition */;
     
 }
 
-.project-images {
+.work-images {
     display: grid;
     position: relative;
     gap: 20px;
-    row-gap: 180px;
+    row-gap: 100px;
     grid-template-columns: repeat(12, 1fr);
     align-items: start;
     max-width: 1920px;
     margin: 0 auto;
 }
 
-.project-item {
+.work-item {
     display: block; /* Ensure the parent anchor tag behaves like a block */
     position: relative;
     text-decoration: none; /* Remove underline for the parent link */
@@ -468,7 +497,7 @@ li {
     margin: 0;
 }
 
-.project-item img {
+.work-item img {
     width: 100%;
     height: auto;
     display: block;
@@ -476,17 +505,41 @@ li {
     user-drag: none;
 }
 
-/* Caption Styling */
 .image-caption {
     margin-top: 20px;
-    font-size: 1.0417rem;
+    font-size: 0.786rem; 
     font-weight: 400;
     letter-spacing: 0.0139rem;
-    line-height: 1.302rem;
+    line-height: 1.102rem;
     color: #111;
     padding-bottom: 10px;
     max-width: 600px;
     margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.image-caption.large {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    max-width: 100%; /* Ensure it spans the full width of the parent container */
+    gap: 20px; /* Space between the columns */
+    align-items: flex-start; /* Align columns to the top */
+}
+
+/* Left column */
+.image-caption.large .left-column {
+    flex: 1; /* Left column width */
+    font-weight: bold; /* Optional: style for emphasis */
+    text-align: left; /* Align text to the left */
+}
+
+/* Right column */
+.image-caption.large .right-column {
+    flex: 3; /* Right column width */
+    font-size: 1rem; /* Adjust text size for readability */
+    text-align: left; /* Align text to the left */
+    line-height: 1.6;
 }
 
 /* Image Sizes */
@@ -514,66 +567,157 @@ li {
     align-items: center;
 }
 
-/* Footer Section Styling */
+/* Contact Form Section */
+.contact-form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    padding: 30px 0;
+    min-height: 50vh;
+    margin: 0;
+}
+
+/* Contact Form */
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-textarea {
+    height: 200px; 
+    padding: 10px;
+    resize: none;
+}
+
+.contact-input,
+.contact-textarea {
+    font-size: 1rem; 
+    font-family: Arial, sans-serif; 
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 12px;  
+    border: 0;
+    border-radius: 0;
+    resize: none;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+    font-size: 0.85rem;
+    color: #d9d9d9;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+    outline: 1px solid #333;
+    background-color: #ffffff;
+}
+
+.form-header { /* Same as H2 */
+    font-size: 1.072rem;
+    font-weight: 400;
+    letter-spacing: 0.0139rem;
+    text-transform: uppercase;
+    line-height: 0.6;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.contact-button {
+    font-size: 1.386rem;
+    font-weight: 400;
+    letter-spacing: 0.0139rem;
+    text-transform: uppercase;
+    line-height: 0.6;
+    padding: 30px 15px;
+    margin-top: 30px;
+    color: #ffffff;
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #65d072;
+}
+
+#confirmation-message {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: green;
+    text-align: center;
+    display: none; /* Initially hide it */
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f8f0;
+}
+
+
+
+/* Footer Styling */
 .footer {
     display: flex;
-    justify-content: space-between; /* Distribute items with equal space between them */
-    align-items: center; /* Vertically center items */
-    padding: 20px; /* Add padding for spacing */
-    margin-top: 360px;
-    width: 100%; /* Ensure full width */
+    justify-content: center;
+    align-items: center; 
+    padding: 30px; 
+    width: 100%; 
 }
 
-/* General column styling */
 .footer-column {
-    display: flex; /* Flexbox for content inside the column */
-    justify-content: center; /* Center the content within each column */
-    text-align: center; /* Center text within columns */
+    display: flex; 
+    justify-content: center;
+    text-align: center;
 }
 
-/* First column aligned to the left */
-.footer-column:first-child {
-    justify-content: flex-start; /* Align the first column to the left */
-}
-
-/* Last column aligned to the right */
-.footer-column:last-child {
-    justify-content: flex-end; /* Align the last column to the right */
-}
-
-/* Footer links */
 .footer-link {
     color: #111;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
 }
 
 @media (max-width: 1280px) {
     .gallery {
         grid-template-columns: repeat(3, 1fr); 
-        margin-bottom: 80px;
+        margin-bottom: 60px;
     }
 }
 
-@media (min-width: 768px) {
-    .rotate-on-hover {
-        display: inline-block;
-        transition: transform 0.08s ease-in;
-        transition: transform 3s ease-out;
-    }
+@media (min-width: 769px) {
+.rotate-on-hover {
+    display: inline-block;
+    transition: transform 0.08s ease-in;
+    transition: transform 3s ease-out;
+}
 
-    .dropdown-menu {
-        display: block; /* Show dropdown on mobile view by default */
-      }
+.dropdown-menu {
+    display: block; 
+}
 
-    .menu-button {
-        display: none; /* Hide the menu button on desktop and larger screens */
-      }
+.menu-button {
+    display: none; 
+}
 
     .rotate-on-hover:hover {
-        animation: rotateOnHover 0.1s forwards;
-    }
+    animation: rotateOnHover 0.1s forwards;
+}
 
-    @keyframes rotateOnHover {
+@keyframes rotateOnHover {
         0% {
             transform: rotate(1deg);
         }
@@ -584,133 +728,153 @@ li {
 }
 
 /* Mobile-specific Styles */
-@media (max-width: 767px) {
-    .main-content {
-        margin: 0 20px;
-        margin-bottom:90px;
-    }
-
-    .content {
+@media screen and (max-width: 768px) {
+.dropdown-menu.visible {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: calc(100vh - 60px);
-        width: 100%;
     }
 
-    .content-wrapper {
-        padding: 0;
-        gap: 20px;
-        width: 100%;
-    }
+.main-content {
+    margin-bottom:30px;
+}
 
-    .navbar {
-        display: none; /* Hide the entire navbar */
-    }
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
-    /* Two-Column Layout Stacking for Mobile */
-    .two-column-layout {
-        display: flex;
-        flex-direction: column; /* Ensure column stacking */
-        width: 100%;
-        margin: 0 auto;
-    }
+.content-wrapper {
+    padding: 0;
+    gap: 20px;
+    width: 100%;
+}
 
-    .left-column, .right-column {
-        width: 100%; /* Ensure columns take full width */
-        padding-right: 0;
-        margin-bottom: 20px; /* Add spacing between stacked columns */
-    }
+body.home-page {
+    margin-top: 120px; 
+}
 
-    /* Gallery Section */
-    .gallery,
-    .image-gallery {
-        display: grid;
-        gap: 90px;
-        grid-template-columns: 1fr;
-        margin: 0 auto;
-        width: 100%;
-    }
+body.work-page {
+    margin-top: 180px; 
+}
 
-    /* Gallery Item Styling */
-    .gallery-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
+body.about-page {
+    margin-top: 150px; 
+}
 
-    .gallery-item-subtitle {
-        font-size: 2rem;
-        line-height: 1.5rem;
-        opacity: 1;
-        margin-top: 30px;
-    }
+section.about-text {
+    margin-top: 30px; 
+}
 
-    .gallery-item .gallery-item-body {
-        opacity: 1;
-    }
+h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.0139rem;
+    text-transform: uppercase;
+    line-height: 0.6;
+    padding-bottom: 30px;
+}
 
-    .gallery-item-body {
-        font-size: 0.9rem;
-        font-weight: 500;
-        line-height: 1.5rem;
-        color: #333; 
-    }
-    
-    .navbar {
-        display: none; /* Hide the entire navbar */
-    }
+.navbar {
+    display: none;
+}
 
-    .project {
-        display: grid;
-        gap: 10px; /* Adjust gap for smaller screens */
-        grid-template-columns: 1fr; /* Stack items in a single column */
-        margin: 0 auto;
-    }
+/* Two-Column Layout Stacking for Mobile */
+.two-column-layout {
+    flex-direction: column; /* Stack the columns vertically */
+    padding: 10px; /* Optional padding for spacing */
+}
 
-    .project-images {
-        display: grid;
-        gap: 30px; /* Adjust gap for smaller screens */
-        grid-template-columns: 1fr; /* Stack images in a single column */
-        row-gap: 20px; /* Reduce row spacing */
-    }
+.left-column, .right-column {
+    width: 100%; /* Each column will take up the full width on mobile */
+    margin-bottom: 20px; /* Space between the two stacked columns */
+}
 
-    .project-text {
-        position: relative; /* Change to relative for natural flow on small screens */
-        text-align: center; /* Center-align the text if desired */
-        margin-bottom: 20px; /* Add spacing below text */
-    }
+.left-column {
+    margin-bottom: 20px; /* Add margin between stacked columns */
+}
 
-    .project-item {
-        margin: 0 auto; /* Center-align project items */
-        width: 90%; /* Adjust width for better spacing */
-    }
+/* Gallery Section */
+.gallery,
+.image-gallery {
+    display: grid;
+    gap: 90px;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    width: 100%;
+}
 
-    .project-item img {
-        width: 100%; /* Ensure images are responsive */
-        height: auto;
-    }
+/* Gallery Item Styling */
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.gallery-item-subtitle {
+    font-size: 2rem;
+    line-height: 1.5rem;
+    opacity: 1;
+    margin-top: 30px;
+}
+
+.gallery-item .gallery-item-body {
+    opacity: 1;
+}
+
+.gallery-item-body {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #333; 
+}
+
+.work {
+    grid-template-columns: 1fr;
+}
+
+.work-images {
+    grid-template-columns: 1fr;
+}
+
+.work-text {
+    position: relative; /* Change to relative for natural flow on small screens */
+    text-align: center; /* Center-align the text if desired */
+    margin-bottom: 20px; /* Add spacing below text */
+}
+
+.work-item {
+    width: 90%; /* Adjust width for better spacing */
+}
+
+.work-item img {
+    width: 100%;
+}
+
 
     /* Footer Styles */
-    .footer {
-        flex-direction: column; /* Stack columns vertically */
-        align-items: center; /* Center align text */
-        padding-bottom: 30px;
-        }
+.footer {
+    flex-direction: column; 
+    align-items: center; 
+    padding-bottom: 20px;
+}
         
-        .footer-group {
-        flex: 1; /* Group behaves as one column */
-        max-width: 100%; /* Takes full width */
-        flex-direction: column; /* Stacked child columns */
-        }
+.footer-group {
+    flex: 1; 
+    max-width: 100%; 
+    flex-direction: column;
+}
     
-        .footer-column {
-            max-width: 100%; /* Each column takes full width */
-            padding: 0; /* Add vertical spacing between columns */
-            text-align: center; /* Optional: Center-align text */
-        }
+.footer-column {
+    max-width: 100%;
+    padding: 0; 
+    text-align: center; 
+}
 
 }
 
