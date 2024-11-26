@@ -674,21 +674,34 @@ body.menu-open {
 /* Footer Styling */
 .footer {
     display: flex;
-    justify-content: center;
-    align-items: center; 
-    padding: 30px; 
-    width: 100%; 
+    justify-content: space-between; /* Distribute items with equal space between them */
+    align-items: center; /* Vertically center items */
+    padding: 30px 50px; /* Add padding for spacing */
+    margin-top: 360px;
+    width: 100%; /* Ensure full width */
 }
 
+/* General column styling */
 .footer-column {
-    display: flex; 
-    justify-content: center;
-    text-align: center;
+    display: flex; /* Flexbox for content inside the column */
+    justify-content: center; /* Center the content within each column */
+    text-align: center; /* Center text within columns */
 }
 
+/* First column aligned to the left */
+.footer-column:first-child {
+    justify-content: flex-start; /* Align the first column to the left */
+}
+
+/* Last column aligned to the right */
+.footer-column:last-child {
+    justify-content: flex-end; /* Align the last column to the right */
+}
+
+/* Footer links */
 .footer-link {
     color: #111;
-    text-decoration: none;
+    text-decoration: none; /* Remove underline */
 }
 
 @media (max-width: 1280px) {
