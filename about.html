@@ -22,19 +22,21 @@
 <!-- Navigation Bar -->
 <nav class="navbar" aria-label="Main Navigation">
     <ul>
-        <li><a href="index2.html" class="navbar-body">Lewis Rowley</a></li>
-        <li><a href="index2.html" class="navbar-body">Work</a></li>
-        <li><a href="about.html" class="navbar-body">About</a></li>
-        <li><a href="#extra" class="navbar-body">Extra-Extra</a></li>
+        <li><a href="index2.html" class="active">Lewis Rowley</a></li>
+        <li><a href="index2.html">Work</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="#extra">Extra</a></li>
     </ul>
 </nav>
 
 <!-- Dropdown Menu -->
 <button class="menu-button">Menu</button>
 <div class="dropdown-menu hidden">
-    <li><a href="index.html" class="menu-item">Work</a></li>
-    <li><a href="about.html" class="menu-item">About</a></li>
-    <li><a href="#extra" class="menu-item">Extra</a></li>
+    <ul>
+        <li><a href="index.html" class="menu-item">Work</a></li>
+        <li><a href="about.html" class="menu-item">About</a></li>
+        <li><a href="#extra" class="menu-item">Extra</a></li>
+    </ul>
 </div>
 
 <!-- Main Content Area -->
@@ -45,12 +47,9 @@
         
         <div class="right-column">
             <section>
-                <div class="work-text fade-on-scroll">
-                    <p class="large-body">Lewis is a brand designer in London with over twelve years of experience working in design and art direction. From full-service agencies, internal brand creative teams, to being a larger part of a boutique studio. 
-                        Time spent living and working overseas, between London, Amsterdam, and Vancouver.</p>
-                        <p class="large-body">Most recently, as a senior designer at a small branding studio in Vancouver, I worked to create and produce startup brands launching to market...
-                            Over two years, I was a part of the brand design team at Nike, headquartered in the Netherlands. 
-                            As a team, we were tasked with redefining the digital experience across brand channels...</p>
+                <div class="fade-in">
+                    <p class="large-body">Lewis is a brand designer with over 12 years experience in graphic design and art direction, in both full-service design agencies and brand creative teams; between between London, Amsterdam, and Vancouver.
+                Now living and working in South East London. </p>
                 </div>
             </section>
         </div>
@@ -65,8 +64,37 @@
         <div class="right-column"></p>
 
             <section class="about-text">
-                <h2>EXPERIENCE</h2>
-                <p class="small-body">
+
+                <section class="fade-in">
+                    <h2>Role</h2>
+                    <ul class="default-body">
+                        <li>
+                            <span class="tab-space">2019 to 2024</span> Design Director at Glasfurd & Walker
+                        </li>
+                        <li>
+                            <span class="tab-space">2017 to 2019</span> Brand Designer at Nike
+                        </li>
+                        <li>
+                            <span class="tab-space">2013 to 2017</span> Mid-weight Designer at PCA
+                        </li>
+                        <li>
+                            <span class="tab-space">2011 to 2013</span> Junior Designer at Hotcake
+                        </li>
+                        <li>
+                            <span class="tab-space">2010 to 2011</span> Intern at Hypernaked
+                        </li>
+                        <li>
+                            <span class="tab-space">2007 to 2010</span> BA Honours Degree Illustration UWE Bristol
+                        </li>
+                        <li>
+                            <span class="tab-space">2006 to 2007</span> Diploma Art Foundation Oxford Brookes University
+                        </li>
+                    </ul>
+                </section>
+           
+            <section class="fade-in">
+                <h2>Experience</h2>
+                <p class="default-body fade-in">
                     Campaign, Creative Direction, Digital Design, Motion, Packaging, Print Design, Typography, Visual Identity, Web Design. 
                     Adobe: Photoshop, Indesign, Illustrator, Lightroom, AfterEffects, XD. 
                     Regular use of web-based platforms: Figma, Squarespace, and Shopify. 
@@ -74,49 +102,19 @@
                 </p>
             </section>
 
-            <section>
-                <h2>Qualifications</h2>
-                <ul class="small-body">
+            <section class="fade-in">
+                <h2>Further Education</h2>
+                <ul class="default-body fade-in">
                     <li>
-                        <span class="tab-space">2007-2010</span>BA Honours Degree, Illustration at UWE Bristol. <br>Fundamentals of Swiss design and principles of typography
+                        <span class="tab-space">2007-2010</span>BA Honours Degree, Illustration at UWE Bristol. <br>Incl. Principles of Swiss Design and Typography
                     </li>
                     <li>
-                        <span class="tab-space">2006-2007</span>Art Foundation Diploma at Oxford Brookes University
-                    </li>
-                </ul>
-            </section>
-
-            <section class="small-body">
-                <h2>ROLES</h2>
-                <ul>
-                    <li>
-                        <span class="tab-space">2019—2024</span> Design Director Glasfurd & Walker
-                    </li>
-                    <li>
-                        <span class="tab-space">2017—2019</span> Brand Designer Nike
-                    </li>
-                    <li>
-                        <span class="tab-space">2013—2017</span> Mid-weight Designer PCA
-                    </li>
-                    <li>
-                        <span class="tab-space">2011—2013</span> Junior Designer Hotcake
-                    </li>
-                    <li>
-                        <span class="tab-space">2010—2011</span> Intern Hypernaked
-                    </li>
-                    <li>
-                        <span class="tab-space">2007—2010</span> BA Honours Degree Illustration UWE Bristol
-                    </li>
-                    <li>
-                        <span class="tab-space">2006—2007</span> Diploma Art Foundation Oxford Brookes University
+                        <span class="tab-space">2006-2007</span>Art Foundation at Oxford Brookes University
                     </li>
                 </ul>
             </section>
-
             </div>
-       
-        </div>
-    
+        </div> 
     </div>
 
     <section class="two-column-layout">
@@ -124,22 +122,22 @@
         <div class="left-column"></div>
     
         <!-- Right Column (Contact Form Section) -->
-        <div class="right-column"><p class="large-body">Feel free to reach out with any questions!</p>
+        <div class="right-column fade-in">
+            <h2>Contact</h2>
             <section class="contact-form-section">
                 <form id="contact-form" class="contact-form">
                     <label for="email" class="contact-label">
-                        <h2 class="form-header">Email</h2>
+                        <h3 class="form-header">Email</h3>
                     </label>
                     <input type="email" id="email" name="email" class="contact-input" placeholder="Your email">
     
                     <label for="message" class="contact-label">
-                        <h2 class="form-header">Message</h2>
+                        <h3 class="form-header">Message</h3>
                     </label>
                     <textarea id="message" name="message" class="contact-textarea" placeholder="Your message"></textarea>
     
                     <button type="submit" class="contact-button">Send</button>
                 </form>
-                <p id="confirmation-message">Message sent!</p>
             </section>
         </div>
     </section>
@@ -149,13 +147,13 @@
 <!-- Footer Section -->
 <div class="footer">
     <div class="footer-column">
-        <a href="#" class="footer-link">© 2024</a>
+        <span>© 2024</span>
     </div>
     <div class="footer-column">
-        <a href="#" class="footer-link">identity, art direction and design</a>
+        <span>identity, art direction and design</span>
     </div>
     <div class="footer-column">
-        <a href="#" class="footer-link">all rights reserved</a>
+        <span>all rights reserved</span>
     </div>
 </div>
 
