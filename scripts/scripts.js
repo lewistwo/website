@@ -26,39 +26,49 @@ if (modal && modalImage && closeButton) {
     console.error("Modal elements not found in the DOM.");
 }
 
-// Navbar and Menu Button Scroll Effect with Throttle
-let throttleTimeout = null; 
-window.addEventListener("scroll", () => {
-    if (!throttleTimeout) {
-        throttleTimeout = setTimeout(() => {
-            const navbar = document.querySelector(".navbar");
-            const menuButton = document.querySelector(".menu-button");
+// Navbar Hide on Scroll Logic
+let lastScrollTop = 0;
+const navbar = document.getElementById('navbar');
 
-            // Apply the scroll effect to the navbar
-            if (navbar) {
-                if (window.scrollY > 0) {
-                    navbar.classList.add("scrolled");
-                } else {
-                    navbar.classList.remove("scrolled");
-                }
-            } else {
-                console.error("Navbar element not found.");
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+
+        if (currentScroll > lastScrollTop) {
+            // Scrolling down
+            navbar.classList.add('hidden');
+        } else {
+            // Scrolling up
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Handle mobile or negative scrolling
+    });
+} else {
+    console.error("Navbar element not found.");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-in");
+
+    elements.forEach((el, index) => {
+        const delay = index * 0.01; 
+        el.style.transitionDelay = `${delay}s`;
+    });
+
+    const onScroll = () => {
+        elements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                el.classList.add("visible");
             }
+        });
+    };
 
-            // Apply the scroll effect to the menu button
-            if (menuButton) {
-                if (window.scrollY > 50) {  // You can adjust the scroll threshold
-                    menuButton.classList.add("scrolled");
-                } else {
-                    menuButton.classList.remove("scrolled");
-                }
-            } else {
-                console.error("Menu button element not found.");
-            }
-
-            throttleTimeout = null;
-        }, 100); // Adjust the throttle delay (100ms is typically fine)
-    }
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // Trigger on page load
 });
 
 // Example for opening the menu
@@ -66,28 +76,34 @@ const menuButton = document.querySelector('.menu-button');
 const dropdownMenu = document.querySelector('.dropdown-menu');
 const body = document.body;
 
-menuButton.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('visible');  // Toggle dropdown visibility
-    body.classList.toggle('menu-open');        // Prevent scrolling when menu is open
-});
-
+if (menuButton && dropdownMenu) {
+    menuButton.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('visible');  // Toggle dropdown visibility
+        body.classList.toggle('menu-open');        // Prevent scrolling when menu is open
+    });
+} else {
+    console.error("Menu elements not found.");
+}
 
 // Fade effect based on scroll
 document.addEventListener("scroll", function () {
     const scrollY = window.scrollY;
-    const fadePoint = 50; // Point at which the fade starts (in pixels)
+    const fadePoint = 30; // Point at which the fade starts (in pixels)
     const element = document.querySelector(".work-text");
 
-    if (scrollY < fadePoint) {
-        // Calculate opacity based on scroll distance
-        const opacity = 1 - scrollY / fadePoint;
-        element.style.opacity = opacity;
+    if (element) {
+        if (scrollY < fadePoint) {
+            // Calculate opacity based on scroll distance
+            const opacity = 1 - scrollY / fadePoint;
+            element.style.opacity = opacity;
+        } else {
+            // Fully faded out
+            element.style.opacity = 0;
+        }
     } else {
-        // Fully faded out
-        element.style.opacity = 0;
+        console.error("Fade element not found.");
     }
 });
-
 
 // Contact Form Submission
 document.getElementById("contact-form").addEventListener("submit", function (e) {
@@ -103,18 +119,9 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
         return;
     }
 
-    // Hide the submit button and show the confirmation message
-    document.querySelector(".contact-button").style.display = "none";
-    document.getElementById("confirmation-message").style.display = "block";
-
     // Clear the form after submission
     document.getElementById("email").value = "";
     document.getElementById("message").value = "";
-
-    // Optionally hide the confirmation message after a few seconds
-    setTimeout(() => {
-        document.getElementById("confirmation-message").style.display = "none";
-    }, 5000);
 
     // For actual email sending, use back-end (like PHP, Formspree, or other services)
     // Example: Simulate sending data (since JavaScript cannot send emails directly)
