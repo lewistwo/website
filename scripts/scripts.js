@@ -1,5 +1,26 @@
 console.log("JavaScript file loaded");
 
+// Navbar Scroll-Hide Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector(".navbar");
+    let lastScrollY = window.scrollY;
+
+    if (navbar) {
+        window.addEventListener("scroll", () => {
+            if (window.innerWidth > 768) { // Desktop only
+                if (window.scrollY > lastScrollY) {
+                    navbar.classList.add("hidden"); // Hide navbar
+                } else {
+                    navbar.classList.remove("hidden"); // Show navbar
+                }
+                lastScrollY = window.scrollY;
+            }
+        });
+    } else {
+        console.error("Navbar element not found.");
+    }
+});
+
 // Modal Logic
 const modal = document.getElementById("modal");
 const modalImage = document.getElementById("modal-image");
@@ -26,33 +47,11 @@ if (modal && modalImage && closeButton) {
     console.error("Modal elements not found in the DOM.");
 }
 
-// Navbar Hide on Scroll Logic
-let lastScrollTop = 0;
-const navbar = document.getElementById('navbar');
-
-if (navbar) {
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-
-        if (currentScroll > lastScrollTop) {
-            // Scrolling down
-            navbar.classList.add('hidden');
-        } else {
-            // Scrolling up
-            navbar.classList.remove('hidden');
-        }
-
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Handle mobile or negative scrolling
-    });
-} else {
-    console.error("Navbar element not found.");
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll(".fade-in");
 
     elements.forEach((el, index) => {
-        const delay = index * 0.01; 
+        const delay = index * 0.015; 
         el.style.transitionDelay = `${delay}s`;
     });
 
@@ -88,7 +87,7 @@ if (menuButton && dropdownMenu) {
 // Fade effect based on scroll
 document.addEventListener("scroll", function () {
     const scrollY = window.scrollY;
-    const fadePoint = 30; // Point at which the fade starts (in pixels)
+    const fadePoint = 70; // Point at which the fade starts (in pixels)
     const element = document.querySelector(".work-text");
 
     if (element) {
@@ -103,6 +102,22 @@ document.addEventListener("scroll", function () {
     } else {
         console.error("Fade element not found.");
     }
+});
+
+// Parallax Effect
+document.addEventListener('scroll', function () {
+    const parallaxImages = document.querySelectorAll('.parallax-image');
+    parallaxImages.forEach(image => {
+        const offset = window.scrollY * 0.5;
+        image.style.transform = `translate(-50%, calc(-50% + ${offset}px))`;
+    });
+
+    document.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const parallaxElement = document.querySelector('.parallax__background');
+        const speed = 0.5; // Adjust for desired speed
+        parallaxElement.style.transform = `translateY(${scrollPosition * speed}px)`;
+      });
 });
 
 // Contact Form Submission
