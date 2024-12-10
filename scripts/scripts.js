@@ -1,145 +1,167 @@
 console.log("JavaScript file loaded");
 
-// Navbar Scroll-Hide Logic
+// Consolidated DOMContentLoaded Logic
 document.addEventListener("DOMContentLoaded", () => {
+    // Navbar Scroll-Hide Logic
     const navbar = document.querySelector(".navbar");
-    let lastScrollY = window.scrollY;
-
     if (navbar) {
+        let lastScrollY = window.scrollY;
+        const topBuffer = 5; // Tolerance for bouncing at the top
+
         window.addEventListener("scroll", () => {
             if (window.innerWidth > 768) { // Desktop only
-                if (window.scrollY > lastScrollY) {
-                    navbar.classList.add("hidden"); // Hide navbar
-                } else {
-                    navbar.classList.remove("hidden"); // Show navbar
+                const currentScrollY = window.scrollY;
+
+                if (currentScrollY <= topBuffer) {
+                    navbar.classList.remove("hidden");
+                } else if (currentScrollY > lastScrollY) {
+                    navbar.classList.add("hidden");
+                } else if (currentScrollY < lastScrollY) {
+                    navbar.classList.remove("hidden");
                 }
-                lastScrollY = window.scrollY;
+
+                lastScrollY = currentScrollY;
             }
         });
     } else {
-        console.error("Navbar element not found.");
+        console.error("Navbar element not found. Ensure your HTML contains an element with the class '.navbar'.");
     }
-});
 
-// Modal Logic
-const modal = document.getElementById("modal");
-const modalImage = document.getElementById("modal-image");
-const closeButton = document.querySelector(".close");
-
-if (modal && modalImage && closeButton) {
-    document.querySelectorAll(".gallery-item img").forEach(img => {
-        img.addEventListener("click", () => {
-            modal.style.display = "flex"; 
-            modalImage.src = img.src;     
+    // Fade-in Elements Logic
+    const fadeInElements = document.querySelectorAll(".fade-in");
+    if (fadeInElements.length > 0) {
+        fadeInElements.forEach((el, index) => {
+            const delay = index * 0.015;
+            el.style.transitionDelay = `${delay}s`;
         });
-    });
 
-    closeButton.addEventListener("click", () => {
-        modal.style.display = "none"; 
-    });
+        const onScroll = () => {
+            fadeInElements.forEach((el) => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none"; 
-        }
-    });
-} else {
-    console.error("Modal elements not found in the DOM.");
-}
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    el.classList.add("visible");
+                }
+            });
+        };
 
-document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll(".fade-in");
+        window.addEventListener("scroll", onScroll);
+        onScroll(); // Trigger on page load
+    }
 
-    elements.forEach((el, index) => {
-        const delay = index * 0.015; 
-        el.style.transitionDelay = `${delay}s`;
-    });
+    // Menu Dropdown Logic
+    const menuButton = document.querySelector('.menu-button');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const body = document.body;
 
-    const onScroll = () => {
-        elements.forEach((el) => {
-            const rect = el.getBoundingClientRect();
-            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-            if (rect.top < windowHeight && rect.bottom > 0) {
-                el.classList.add("visible");
+    if (menuButton && dropdownMenu) {
+        menuButton.addEventListener('click', () => {
+            const isHidden = dropdownMenu.classList.contains('hidden');
+            if (isHidden) {
+                dropdownMenu.classList.remove('hidden');
+                dropdownMenu.classList.add('visible');
+                body.classList.add('menu-open');
+            } else {
+                dropdownMenu.classList.remove('visible');
+                dropdownMenu.classList.add('hidden');
+                body.classList.remove('menu-open');
             }
         });
-    };
 
-    window.addEventListener("scroll", onScroll);
-    onScroll(); // Trigger on page load
-});
-
-// Example for opening the menu
-const menuButton = document.querySelector('.menu-button');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-const body = document.body;
-
-if (menuButton && dropdownMenu) {
-    menuButton.addEventListener('click', () => {
-        dropdownMenu.classList.toggle('visible');  // Toggle dropdown visibility
-        body.classList.toggle('menu-open');        // Prevent scrolling when menu is open
-    });
-} else {
-    console.error("Menu elements not found.");
-}
-
-// Fade effect based on scroll
-document.addEventListener("scroll", function () {
-    const scrollY = window.scrollY;
-    const fadePoint = 70; // Point at which the fade starts (in pixels)
-    const element = document.querySelector(".work-text");
-
-    if (element) {
-        if (scrollY < fadePoint) {
-            // Calculate opacity based on scroll distance
-            const opacity = 1 - scrollY / fadePoint;
-            element.style.opacity = opacity;
+        // Add link to close the menu
+        const closeMenuLink = dropdownMenu.querySelector('.close-menu');
+        if (closeMenuLink) {
+            closeMenuLink.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                dropdownMenu.classList.add('hidden'); // Close the menu
+                body.classList.remove('menu-open');
+            });
         } else {
-            // Fully faded out
-            element.style.opacity = 0;
+            console.error("Close menu link not found. Ensure your HTML contains a link with the class '.close-menu'.");
         }
     } else {
-        console.error("Fade element not found.");
+        console.error("Menu elements not found. Ensure your HTML contains elements with the classes '.menu-button' and '.dropdown-menu'.");
     }
-});
 
-// Parallax Effect
-document.addEventListener('scroll', function () {
-    const parallaxImages = document.querySelectorAll('.parallax-image');
-    parallaxImages.forEach(image => {
-        const offset = window.scrollY * 0.5;
-        image.style.transform = `translate(-50%, calc(-50% + ${offset}px))`;
+    // Modal Logic
+    const modal = document.getElementById("modal");
+    const modalImage = document.getElementById("modal-image");
+    const closeButton = document.querySelector(".close");
+
+    if (modal && modalImage && closeButton) {
+        document.querySelectorAll(".gallery-item img").forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImage.src = img.src;
+            });
+        });
+
+        closeButton.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    } else {
+        console.error("Modal elements not found. Ensure your HTML contains elements with IDs 'modal' and 'modal-image', and a close button with the class '.close'.");
+    }
+
+    // Project Text Fade Effect Based on Scroll
+    const workText = document.querySelector(".project-text");
+    if (workText) {
+        document.addEventListener("scroll", () => {
+            const scrollY = window.scrollY;
+            const fadePoint = 70;
+            const opacity = scrollY < fadePoint ? 1 - scrollY / fadePoint : 0;
+            workText.style.opacity = opacity;
+        });
+    } else {
+        console.error("Fade element '.project-text' not found.");
+    }
+
+    // Parallax Effect
+    document.addEventListener("scroll", () => {
+        const parallaxImages = document.querySelectorAll(".parallax-image");
+        if (parallaxImages.length > 0) {
+            parallaxImages.forEach(image => {
+                const offset = window.scrollY * 0.5;
+                image.style.transform = `translate(-50%, calc(-50% + ${offset}px))`;
+            });
+        }
+
+        const parallaxElement = document.querySelector(".parallax__background");
+        if (parallaxElement) {
+            const scrollPosition = window.scrollY;
+            const speed = 0.5; // Adjust for desired speed
+            parallaxElement.style.transform = `translateY(${scrollPosition * speed}px)`;
+        }
     });
 
-    document.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY;
-        const parallaxElement = document.querySelector('.parallax__background');
-        const speed = 0.5; // Adjust for desired speed
-        parallaxElement.style.transform = `translateY(${scrollPosition * speed}px)`;
-      });
-});
+    // Contact Form Submission
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
 
-// Contact Form Submission
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent form from default submission (no page refresh)
-    
-    // Get values of email and message fields
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
 
-    // Basic validation (you can expand this)
-    if (!email || !message) {
-        alert("Please fill in both fields.");
-        return;
+            if (!email || !message) {
+                alert("Please fill in both fields.");
+                return;
+            }
+
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+
+            console.log("Email sent to:", email);
+            console.log("Message content:", message);
+        });
+    } else {
+        console.error("Contact form not found. Ensure your HTML contains a form with the ID 'contact-form'.");
     }
-
-    // Clear the form after submission
-    document.getElementById("email").value = "";
-    document.getElementById("message").value = "";
-
-    // For actual email sending, use back-end (like PHP, Formspree, or other services)
-    // Example: Simulate sending data (since JavaScript cannot send emails directly)
-    console.log("Email sent to:", email);
-    console.log("Message content:", message);
 });
