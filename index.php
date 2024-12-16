@@ -29,12 +29,12 @@
 
         .submit-wrapper {
             display: grid;
-            grid-template-columns: 1fr 40px;
+            grid-template-columns: 1fr 40px; /* 1fr for input, fixed width for the button */
             align-items: center;
             border-radius: 100px;
             border: 1px solid rgba(0, 0, 0, 0.75);
             background: #fff;
-            padding: 5px;
+            padding: 5px; /* Add padding for spacing */
         }
 
         input[type="password"] {
@@ -46,14 +46,14 @@
             line-height: 21px;
             letter-spacing: -0.004em;
             text-align: left;
-            width: 100%;
-            background-color: transparent;
+            width: 100%; /* Take up available space in the grid */
+            background-color: transparent; /* Match the wrapper's background */
             color: rgba(0, 0, 0, 0.75);
-            outline: none;
+            outline: none; /* Remove the default browser outline */
         }
 
         input[type="password"]::placeholder {
-            color: rgba(0, 0, 0, 0.5);
+            color: rgba(0, 0, 0, 0.5); /* Slightly lighter placeholder */
         }
 
         .button-area {
@@ -100,7 +100,7 @@
                 </div>
             </form>
             <?php
-            session_start();
+            session_start(); // Start session
             if (isset($_SESSION['error'])) {
                 echo "<div class='error'>{$_SESSION['error']}</div>";
                 unset($_SESSION['error']); // Clear the error after displaying
