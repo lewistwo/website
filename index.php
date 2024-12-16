@@ -29,12 +29,12 @@
 
         .submit-wrapper {
             display: grid;
-            grid-template-columns: 1fr 40px; /* 1fr for input, fixed width for the button */
+            grid-template-columns: 1fr 40px;
             align-items: center;
             border-radius: 100px;
             border: 1px solid rgba(0, 0, 0, 0.75);
             background: #fff;
-            padding: 5px; /* Add padding for spacing */
+            padding: 5px;
         }
 
         input[type="password"] {
@@ -46,14 +46,14 @@
             line-height: 21px;
             letter-spacing: -0.004em;
             text-align: left;
-            width: 100%; /* Take up available space in the grid */
-            background-color: transparent; /* Match the wrapper's background */
+            width: 100%;
+            background-color: transparent;
             color: rgba(0, 0, 0, 0.75);
-            outline: none; /* Remove the default browser outline */
+            outline: none;
         }
 
         input[type="password"]::placeholder {
-            color: rgba(0, 0, 0, 0.5); /* Slightly lighter placeholder */
+            color: rgba(0, 0, 0, 0.5);
         }
 
         .button-area {
@@ -69,9 +69,6 @@
             height: 36px;
             border-radius: 50%;
             background: #000;
-            transform-origin: 50% 50%;
-            transform: scale(1);
-            border: none;
             background-image: url("data:image/svg+xml,%3Csvg width='21' height='19' viewBox='0 0 21 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.8438 1.9375L19.3438 9.4375L11.8438 16.9375' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M19.3437 9.4375L1.40625 9.4375' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E%0A");
             background-position: center;
             background-repeat: no-repeat;
@@ -92,23 +89,24 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <form action="verify-password.php" method="POST">
-            <div class="submit-wrapper">
-                <input type="password" name="password" placeholder="Enter Password" required>
-                <div class="button-area">
-                    <button type="submit" class="submit-button" aria-label="Submit"></button>
+    <div class="holding-page">
+        <div class="container">
+            <form action="verify-password.php" method="POST">
+                <div class="submit-wrapper">
+                    <input type="password" name="password" placeholder="Enter Password" required>
+                    <div class="button-area">
+                        <button type="submit" class="submit-button"></button>
+                    </div>
                 </div>
-            </div>
-        </form>
-        <!-- Error message dynamically added -->
-        <?php
-        session_start();
-        if (isset($_SESSION['error'])) {
-            echo "<div class='error'>{$_SESSION['error']}</div>";
-            unset($_SESSION['error']); // Clear the error after displaying
-        }
-        ?>
+            </form>
+            <?php
+            session_start();
+            if (isset($_SESSION['error'])) {
+                echo "<div class='error'>{$_SESSION['error']}</div>";
+                unset($_SESSION['error']); // Clear the error after displaying
+            }
+            ?>
+        </div>
     </div>
 </body>
 </html>
