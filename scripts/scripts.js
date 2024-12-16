@@ -27,6 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Navbar element not found. Ensure your HTML contains an element with the class '.navbar'.");
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
+    // Dropdown Menu Button Scroll-Hide Logic
+    const menuButton = document.querySelector(".menu-button");
+    if (menuButton) {
+        let lastScrollY = window.scrollY;
+        const bottomBuffer = 5; // Tolerance for small scroll movements
+
+        window.addEventListener("scroll", () => {
+            if (window.innerWidth > 768) { // Desktop only
+                const currentScrollY = window.scrollY;
+
+                // Check scroll direction to toggle visibility
+                if (currentScrollY <= bottomBuffer) {
+                    menuButton.classList.remove("hidden");
+                } else if (currentScrollY > lastScrollY) {
+                    menuButton.classList.add("hidden"); // Hide on scroll down
+                } else if (currentScrollY < lastScrollY) {
+                    menuButton.classList.remove("hidden"); // Show on scroll up
+                }
+
+                lastScrollY = currentScrollY;
+            }
+        });
+    } else {
+        console.error("Menu button element not found. Ensure your HTML contains an element with the class '.menu-button'.");
+    }
+});
+
+
     // Fade-in Elements Logic
     const fadeInElements = document.querySelectorAll(".fade-in");
     if (fadeInElements.length > 0) {
