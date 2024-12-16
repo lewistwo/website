@@ -12,13 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if the password is correct
     if ($password === $correctPassword) {
-        // Redirect to the protected page
-        header("Location: index.php"); // Direct to index.php now that it will load the content
+        // Redirect to the protected page (index.html)
+        header("Location: /private/index.html");
         exit;
     } else {
         // Save error message to session and redirect back to the form
         $_SESSION['error'] = "Incorrect password! Please try again.";
-        header("Location: index.php"); // Ensure the redirection is to the correct PHP file
+        header("Location: /private/index.php"); // Ensure the redirection is to the PHP file
         exit;
     }
 }
