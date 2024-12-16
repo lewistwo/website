@@ -14,22 +14,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Password Protected Page</title>
-</head>
-<body>
-    <h2>Enter Password to Access Link</h2>
-    <form method="post">
-        <input type="password" name="password" />
-        <button type="submit">Submit</button>
-    </form>
-    <?php 
-    // Display the error message if there is one
-    if (isset($error)) { 
-        echo "<p style='color:red;'>$error</p>"; 
-    } 
-    ?>
-</body>
-</html>
