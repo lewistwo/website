@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Check if the password is correct
-    if ($password == "yourpassword") {
+    if ($password == "crystalpalace") {
         // Redirect to the protected page or link
         header("Location: project1.html");
         exit;
