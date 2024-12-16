@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lewis Rowley</title>
+    <title>Password Protected Page</title>
     <style>
-        /* General Page Styling */
+        /* Styles remain the same as previously defined */
         body {
             margin: 0;
             padding: 0;
@@ -91,7 +91,7 @@
 <body>
     <div class="holding-page">
         <div class="container">
-            <form action="verify-password.php" method="POST">
+            <form action="index.html" method="GET"> <!-- Redirect on submit -->
                 <div class="submit-wrapper">
                     <input type="password" name="password" placeholder="Enter Password" required>
                     <div class="button-area">
@@ -99,13 +99,6 @@
                     </div>
                 </div>
             </form>
-            <?php
-            session_start(); // Start session
-            if (isset($_SESSION['error'])) {
-                echo "<div class='error'>{$_SESSION['error']}</div>";
-                unset($_SESSION['error']); // Clear the error after displaying
-            }
-            ?>
         </div>
     </div>
 </body>
