@@ -115,19 +115,6 @@
                 </div>
             </form>
 
-            <?php
-            session_start(); // Start session
-            if (isset($_SESSION['error'])) {
-                echo "<div class='error'>{$_SESSION['error']}</div>";
-                unset($_SESSION['error']); // Clear the error after displaying
-            } elseif ($_SESSION['authenticated']) {
-                echo "<div class='nav-links'>";
-                echo "<a href='lewisrowley.com'>Home</a>";
-                echo "<a href='lewisrowley.com/private'>Private</a>";
-                echo "<a href='lewisrowley.com/otherpage'>Other Page</a>";
-                echo "</div>";
-            }
-            ?>
         </div>
     </div>
 </body>
