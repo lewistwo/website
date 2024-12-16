@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-
-<!--
-    —————————————————————————————————————————————————
-    Lewis Rowley                         © 2024
-    Website Design
-    —————————————————————————————————————————————————
--->
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Protected Page</title>
     <style>
-        /* General Styles */
+        /* General Page Styling */
         body {
-            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica, sans-serif;
+            background-color: #f9f9f9;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background-color: #f9f9f9;
         }
 
         .container {
@@ -34,54 +27,86 @@
             width: 100%;
         }
 
-        h2 {
-            margin-bottom: 20px;
-            color: #333;
+        .submit-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 40px; /* 1fr for input, fixed width for the button */
+            align-items: center;
+            border-radius: 100px;
+            border: 1px solid rgba(0, 0, 0, 0.75);
+            background: #fff;
+            padding: 5px; /* Add padding for spacing */
         }
 
         input[type="password"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-family: Helvetica, sans-serif;
+            font-weight: 400;
+            line-height: 21px;
+            letter-spacing: -0.004em;
+            text-align: left;
+            width: 100%; /* Take up available space in the grid */
+            background-color: transparent; /* Match the wrapper's background */
+            color: rgba(0, 0, 0, 0.75);
+            outline: none; /* Remove the default browser outline */
         }
 
-        button:hover {
-            background-color: #0056b3;
+        input[type="password"]::placeholder {
+            color: rgba(0, 0, 0, 0.5); /* Slightly lighter placeholder */
+        }
+
+        .button-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .submit-button {
+            display: block;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #000;
+            transform-origin: 50% 50%;
+            transform: scale(1);
+            border: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='21' height='19' viewBox='0 0 21 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.8438 1.9375L19.3438 9.4375L11.8438 16.9375' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M19.3437 9.4375L1.40625 9.4375' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 17px 17px;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .submit-button:active {
+            opacity: 0.7;
         }
 
         .error {
+            margin-top: 10px;
             color: red;
             font-size: 14px;
-            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Enter Password to Access Link</h2>
-        <form method="post" action="verify-password.php">
-            <input type="password" name="password" placeholder="Enter Password" required />
-            <button type="submit">Submit</button>
+        <form action="verify-password.php" method="POST">
+            <div class="submit-wrapper">
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <div class="button-area">
+                    <button type="submit" class="submit-button" aria-label="Submit"></button>
+                </div>
+            </div>
         </form>
+        <!-- Error message dynamically added -->
         <?php
-        // Start session to retrieve error messages
         session_start();
         if (isset($_SESSION['error'])) {
-            echo "<p class='error'>{$_SESSION['error']}</p>";
-            unset($_SESSION['error']); // Clear error message after displaying it
+            echo "<div class='error'>{$_SESSION['error']}</div>";
+            unset($_SESSION['error']); // Clear the error after displaying
         }
         ?>
     </div>
