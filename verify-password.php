@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the password is correct
     if ($password === $correctPassword) {
         // Redirect to the protected page
-        header("Location: project1.html");
+        header("Location: index.html");
         exit;
     } else {
         // Save error message to session and redirect back to the form
