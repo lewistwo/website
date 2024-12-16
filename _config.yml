@@ -1,0 +1,9 @@
+# _config.yml
+
+# This is where your site's configuration is stored.
+# Add this line:
+
+collections:
+  - index.php
+
+# Now, when a visitor accesses 'index.html', they will be redirected to 'index.php'.
