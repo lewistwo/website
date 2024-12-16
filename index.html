@@ -58,38 +58,108 @@
         }
 
         input[type="password"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
+            border-radius: 100px;
             border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            padding: 10px 0px 10px 20px;
+            font-size: 18px;
+            font-family: Helvetica, sans-serif;
+            font-weight: 400;
+            line-height: 21px;
+            letter-spacing: -0.004em;
+            text-align: left;
+            width: auto;
+            background-color: white;
+            color: rgba(0, 0, 0, 0.75);
         }
 
-        button:hover {
-            background-color: #0056b3;
+        input[type="password"]::placeholder {
+            color: rgba(0,0,0,0.75);
+        }
+
+        .submit-wrapper {
+            display: grid;
+            grid-template-columns: auto 40px;
+            border-radius: 100px;
+            border: 1px solid rgba(0,0,0,0.75);
+            grid-gap: 5px;
+            background: #fff;
+        }
+
+        .button-area {
+            position: relative;
+            width: 40px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            cursor: pointer;
+        }
+
+        .submit-button {
+            display: block;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #000;
+            transform-origin: 50% 50%;
+            transform: scale(1);
+            border: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='21' height='19' viewBox='0 0 21 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.8438 1.9375L19.3438 9.4375L11.8438 16.9375' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M19.3437 9.4375L1.40625 9.4375' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+            background-position: 46% 50%;
+            background-repeat: no-repeat;
+            background-size: 17px 17px;
+            pointer-events: auto;
+            cursor: pointer;
+            margin-right: 1px;
+        }
+
+        .submit-button:active {
+            opacity: 0.7;
+        }
+
+        .site-password,
+        .page-password {
+            text-align: center;
+            margin: auto;
+            height: 0;
+            width: 340px;
+            display: table;
+        }
+
+        .site-password {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .error {
+            transform: translate(0, 20px);
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left: 0;
+            color: rgba(0,0,0,0.75);
+            user-select: none;
         }
     </style>
 </head>
 
 <body>
     <div class="holding-page">
+        <h1>Welcome to Lewis Rowley's Website</h1>
         <div class="container">
+            <h1>Access Restricted</h1>
             <p>Please enter the password to proceed:</p>
             <form action="verify-password.php" method="POST">
                 <input type="password" name="password" placeholder="Enter Password" required>
-                <button type="submit">Submit</button>
+                <div class="submit-wrapper">
+                    <div class="button-area">
+                        <button type="submit" class="submit-button"></button>
+                    </div>
+                </div>
             </form>
+            <div class="error" id="error-message"></div>
         </div>
     </div>
 </body>
