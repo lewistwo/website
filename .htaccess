@@ -1,6 +1,4 @@
+# Redirect all traffic to the password-protected page
 RewriteEngine On
-RewriteRule ^$ /index.html [L]
-RewriteRule ^private/ /index.html [L]
-RewriteRule ^private/about.html /index.html [L]
-RewriteRule ^private/contact.html /index.html [L]
-# Add more rules as needed for other pages in the private folder
+RewriteCond %{REQUEST_URI} !^/private/
+RewriteRule ^ index.php [L]
