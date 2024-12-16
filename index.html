@@ -8,155 +8,82 @@
 -->
 
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lewis Rowley</title>
-    <link rel="icon" href="images/favicon.png" type="image/png">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
     <style>
+        /* General Styles */
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
-
-        .holding-page h1 {
-            font-size: 2rem;
-            font-weight: 400;
-            letter-spacing: 0.0139rem;
-            text-transform: uppercase;
-            line-height: 0.6;
-            padding-bottom: 20px;
-            text-align: center;
+            margin: 0;
+            background-color: #f9f9f9;
         }
 
         .container {
             text-align: center;
             padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            width: 400px;
-            max-width: 100%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
         }
 
-        h1 {
-            font-size: 24px;
-            margin-bottom: 16px;
-        }
-
-        p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 16px;
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
         }
 
         input[type="password"] {
-            border-radius: 100px;
+            width: calc(100% - 22px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
             border: none;
-            padding: 10px 0px 10px 20px;
-            font-size: 18px;
-            font-family: Helvetica, sans-serif;
-            font-weight: 400;
-            line-height: 21px;
-            letter-spacing: -0.004em;
-            text-align: left;
-            width: auto;
-            background-color: white;
-            color: rgba(0, 0, 0, 0.75);
-        }
-
-        input[type="password"]::placeholder {
-            color: rgba(0,0,0,0.75);
-        }
-
-        .submit-wrapper {
-            display: grid;
-            grid-template-columns: auto 40px;
-            border-radius: 100px;
-            border: 1px solid rgba(0,0,0,0.75);
-            grid-gap: 5px;
-            background: #fff;
-        }
-
-        .button-area {
-            position: relative;
-            width: 40px;
-            justify-content: center;
-            align-items: center;
-            display: flex;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
         }
 
-        .submit-button {
-            display: block;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: #000;
-            transform-origin: 50% 50%;
-            transform: scale(1);
-            border: none;
-            background-image: url("data:image/svg+xml,%3Csvg width='21' height='19' viewBox='0 0 21 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.8438 1.9375L19.3438 9.4375L11.8438 16.9375' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M19.3437 9.4375L1.40625 9.4375' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E%0A");
-            background-position: 46% 50%;
-            background-repeat: no-repeat;
-            background-size: 17px 17px;
-            pointer-events: auto;
-            cursor: pointer;
-            margin-right: 1px;
-        }
-
-        .submit-button:active {
-            opacity: 0.7;
-        }
-
-        .site-password,
-        .page-password {
-            text-align: center;
-            margin: auto;
-            height: 0;
-            width: 340px;
-            display: table;
-        }
-
-        .site-password {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
+        button:hover {
+            background-color: #0056b3;
         }
 
         .error {
-            transform: translate(0, 20px);
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            left: 0;
-            color: rgba(0,0,0,0.75);
-            user-select: none;
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
         }
     </style>
 </head>
-
 <body>
-    <div class="holding-page">
-        <div class="container">
-            <form action="verify-password.php" method="POST">
-                <input type="password" name="password" placeholder="Enter Password" required>
-                <div class="submit-wrapper">
-                    <div class="button-area">
-                        <button type="submit" class="submit-button"></button>
-                    </div>
-                </div>
-            </form>
-            <div class="error" id="error-message"></div>
-        </div>
+    <div class="container">
+        <h2>Enter Password to Access Link</h2>
+        <form method="post" action="verify-password.php">
+            <input type="password" name="password" placeholder="Enter Password" required />
+            <button type="submit">Submit</button>
+        </form>
+        <?php
+        // Start session to retrieve error messages
+        session_start();
+        if (isset($_SESSION['error'])) {
+            echo "<p class='error'>{$_SESSION['error']}</p>";
+            unset($_SESSION['error']); // Clear error message after displaying it
+        }
+        ?>
     </div>
 </body>
 </html>
