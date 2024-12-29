@@ -1,116 +1,128 @@
 console.log("JavaScript file loaded");
 
-// Consolidated DOMContentLoaded Logic
 document.addEventListener("DOMContentLoaded", () => {
-    // Navbar Scroll-Hide Logic
+    // Navbar Scroll-Hide Logic with Blur on Scroll-Up
     const navbar = document.querySelector(".navbar");
     if (navbar) {
         let lastScrollY = window.scrollY;
-        const topBuffer = 5; // Tolerance for bouncing at the top
+        const topBuffer = 5;
 
         window.addEventListener("scroll", () => {
-            if (window.innerWidth > 768) { // Desktop only
+            if (window.innerWidth > 768) {
                 const currentScrollY = window.scrollY;
 
                 if (currentScrollY <= topBuffer) {
                     navbar.classList.remove("hidden");
+                    navbar.classList.remove("blurred");
                 } else if (currentScrollY > lastScrollY) {
                     navbar.classList.add("hidden");
+                    navbar.classList.remove("blurred");
                 } else if (currentScrollY < lastScrollY) {
                     navbar.classList.remove("hidden");
+                    navbar.classList.add("blurred");
                 }
 
                 lastScrollY = currentScrollY;
             }
         });
     } else {
-        console.error("Navbar element not found. Ensure your HTML contains an element with the class '.navbar'.");
+        console.error("Navbar element not found.");
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-    // Dropdown Menu Button Scroll-Hide Logic
     const menuButton = document.querySelector(".menu-button");
-    if (menuButton) {
-        let lastScrollY = window.scrollY;
-        const bottomBuffer = 5; // Tolerance for small scroll movements
-
-        window.addEventListener("scroll", () => {
-            if (window.innerWidth > 768) { // Desktop only
-                const currentScrollY = window.scrollY;
-
-                // Check scroll direction to toggle visibility
-                if (currentScrollY <= bottomBuffer) {
-                    menuButton.classList.remove("hidden");
-                } else if (currentScrollY > lastScrollY) {
-                    menuButton.classList.add("hidden"); // Hide on scroll down
-                } else if (currentScrollY < lastScrollY) {
-                    menuButton.classList.remove("hidden"); // Show on scroll up
-                }
-
-                lastScrollY = currentScrollY;
-            }
-        });
-    } else {
-        console.error("Menu button element not found. Ensure your HTML contains an element with the class '.menu-button'.");
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+    const body = document.body;
+    
+    // Helper function to handle transitions
+    function toggleMenu(show) {
+        if (show) {
+            dropdownMenu.classList.add("visible");
+            dropdownMenu.classList.remove("hidden");
+            body.classList.add("menu-open");
+        } else {
+            dropdownMenu.classList.add("hidden");
+            dropdownMenu.addEventListener(
+                "transitionend",
+                () => {
+                    dropdownMenu.classList.remove("visible");
+                },
+                { once: true }
+            );
+            body.classList.remove("menu-open");
+        }
     }
-});
+    
+    if (menuButton && dropdownMenu) {
+        menuButton.addEventListener("click", () => {
+            const isVisible = dropdownMenu.classList.contains("visible");
+            toggleMenu(!isVisible);
+        });
+    
+        const closeMenuLink = dropdownMenu.querySelector(".close-menu");
+        if (closeMenuLink) {
+            closeMenuLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                toggleMenu(false);
+            });
+        } else {
+            console.error("Close menu link not found.");
+        }
+    } else {
+        console.error("Menu elements not found.");
+    }
+    
 
-
-    // Fade-in Elements Logic
+    // Fade-In Elements Logic
     const fadeInElements = document.querySelectorAll(".fade-in");
     if (fadeInElements.length > 0) {
         fadeInElements.forEach((el, index) => {
-            const delay = index * 0.015;
-            el.style.transitionDelay = `${delay}s`;
+            el.style.transitionDelay = `${index * 0.015}s`;
         });
 
-        const onScroll = () => {
+        const handleFadeIn = () => {
             fadeInElements.forEach((el) => {
                 const rect = el.getBoundingClientRect();
-                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-                if (rect.top < windowHeight && rect.bottom > 0) {
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
                     el.classList.add("visible");
                 }
             });
         };
 
-        window.addEventListener("scroll", onScroll);
-        onScroll(); // Trigger on page load
+        window.addEventListener("scroll", handleFadeIn);
+        handleFadeIn();
     }
 
-    // Menu Dropdown Logic
-    const menuButton = document.querySelector('.menu-button');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    const body = document.body;
+    // Slideshow Effect
+    const slideshow = document.querySelector(".slideshow");
+    if (slideshow) {
+        const images = slideshow.querySelectorAll("img");
+        const description = slideshow.querySelector(".slideshow-description");
+        let currentIndex = 0;
 
-    if (menuButton && dropdownMenu) {
-        menuButton.addEventListener('click', () => {
-            const isHidden = dropdownMenu.classList.contains('hidden');
-            if (isHidden) {
-                dropdownMenu.classList.remove('hidden');
-                dropdownMenu.classList.add('visible');
-                body.classList.add('menu-open');
-            } else {
-                dropdownMenu.classList.remove('visible');
-                dropdownMenu.classList.add('hidden');
-                body.classList.remove('menu-open');
-            }
-        });
-
-        // Add link to close the menu
-        const closeMenuLink = dropdownMenu.querySelector('.close-menu');
-        if (closeMenuLink) {
-            closeMenuLink.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default link behavior
-                dropdownMenu.classList.add('hidden'); // Close the menu
-                body.classList.remove('menu-open');
-            });
-        } else {
-            console.error("Close menu link not found. Ensure your HTML contains a link with the class '.close-menu'.");
+        // Initialize the description
+        if (images.length > 0) {
+            description.textContent = images[0].getAttribute("data-description");
         }
+
+        slideshow.classList.add("visible");
+
+        slideshow.addEventListener("click", () => {
+            console.log("Slideshow clicked");
+
+            // Remove 'active' class from the current image
+            images[currentIndex].classList.remove("active");
+
+            // Update index to the next image (loop back to the first if necessary)
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // Add 'active' class to the new current image
+            images[currentIndex].classList.add("active");
+
+            // Update the text description
+            description.textContent = images[currentIndex].getAttribute("data-description");
+        });
     } else {
-        console.error("Menu elements not found. Ensure your HTML contains elements with the classes '.menu-button' and '.dropdown-menu'.");
+        console.error("Slideshow element not found.");
     }
 
     // Modal Logic
@@ -119,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeButton = document.querySelector(".close");
 
     if (modal && modalImage && closeButton) {
-        document.querySelectorAll(".gallery-item img").forEach(img => {
+        document.querySelectorAll(".slideshow-item img").forEach(img => {
             img.addEventListener("click", () => {
                 modal.style.display = "flex";
                 modalImage.src = img.src;
@@ -136,44 +148,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     } else {
-        console.error("Modal elements not found. Ensure your HTML contains elements with IDs 'modal' and 'modal-image', and a close button with the class '.close'.");
-    }
-
-    // Project Text Fade Effect Based on Scroll
-    const workText = document.querySelector(".project-text");
-    if (workText) {
-        document.addEventListener("scroll", () => {
-            const scrollY = window.scrollY;
-            const fadePoint = 70;
-            const opacity = scrollY < fadePoint ? 1 - scrollY / fadePoint : 0;
-            workText.style.opacity = opacity;
-        });
-    } else {
-        console.error("Fade element '.project-text' not found.");
+        console.error("Modal elements not found.");
     }
 
     // Parallax Effect
-    document.addEventListener("scroll", () => {
+    window.addEventListener("scroll", () => {
         const parallaxImages = document.querySelectorAll(".parallax-image");
-        if (parallaxImages.length > 0) {
-            parallaxImages.forEach(image => {
-                const offset = window.scrollY * 0.5;
-                image.style.transform = `translate(-50%, calc(-50% + ${offset}px))`;
-            });
-        }
+        parallaxImages.forEach(image => {
+            const offset = window.scrollY * 0.5;
+            image.style.transform = `translate(-50%, calc(-50% + ${offset}px))`;
+        });
 
         const parallaxElement = document.querySelector(".parallax__background");
         if (parallaxElement) {
-            const scrollPosition = window.scrollY;
-            const speed = 0.5; // Adjust for desired speed
-            parallaxElement.style.transform = `translateY(${scrollPosition * speed}px)`;
+            parallaxElement.style.transform = `translateY(${window.scrollY * 0.5}px)`;
         }
     });
 
-    // Contact Form Submission
+    // Contact Form Logic
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
-        contactForm.addEventListener("submit", function (e) {
+        contactForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
             const email = document.getElementById("email").value;
@@ -191,6 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Message content:", message);
         });
     } else {
-        console.error("Contact form not found. Ensure your HTML contains a form with the ID 'contact-form'.");
+        console.error("Contact form not found.");
     }
 });
